@@ -11,7 +11,7 @@
     --accent: #FF6B9D;
     --whatsapp: #25D366;
     --whatsapp-dark: #1DA851;
-    
+
     /* Neutrals */
     --white: #FFFFFF;
     --bg: #FFF5F8;
@@ -19,28 +19,30 @@
     --text: #1A1A2E;
     --text-light: #6B7280;
     --border: rgba(255, 107, 157, 0.2);
-    
+
     /* iOS 26 Design Tokens */
     --radius-sm: 12px;
     --radius-md: 20px;
     --radius-lg: 28px;
     --radius-xl: 40px;
-    
+
     --blur: 20px;
     --shadow: 0 8px 32px rgba(255, 107, 157, 0.15);
     --shadow-lg: 0 20px 60px rgba(255, 107, 157, 0.2);
-    
+
     /* Spacing */
     --section-padding: 100px 0;
     --container-width: 1200px;
-    
+
     /* Transitions */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Reset & Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -67,14 +69,25 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-weight: 700;
     line-height: 1.2;
 }
 
-h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); }
-h3 { font-size: 1.25rem; }
+h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+    font-size: 1.25rem;
+}
 
 .accent {
     color: var(--primary);
@@ -101,14 +114,42 @@ h3 { font-size: 1.25rem; }
     animation: float 20s ease-in-out infinite;
 }
 
-.heart-1 { top: 10%; left: 5%; animation-delay: 0s; }
-.heart-2 { top: 60%; right: 5%; animation-delay: -5s; }
-.heart-3 { bottom: 20%; left: 15%; animation-delay: -10s; font-size: 80px; }
-.heart-4 { top: 30%; right: 15%; animation-delay: -15s; font-size: 100px; }
+.heart-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.heart-2 {
+    top: 60%;
+    right: 5%;
+    animation-delay: -5s;
+}
+
+.heart-3 {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: -10s;
+    font-size: 80px;
+}
+
+.heart-4 {
+    top: 30%;
+    right: 15%;
+    animation-delay: -15s;
+    font-size: 100px;
+}
 
 @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-30px) rotate(5deg); }
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(5deg);
+    }
 }
 
 /* ============================================
@@ -232,7 +273,7 @@ h3 { font-size: 1.25rem; }
 }
 
 /* ============================================
-   NAVBAR
+   NAVBAR - iOS 26 Ultra Modern Design
    ============================================ */
 .navbar {
     position: fixed;
@@ -240,54 +281,188 @@ h3 { font-size: 1.25rem; }
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 16px 0;
-    transition: var(--transition);
+    padding: 20px 24px;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .navbar.scrolled {
-    background: rgba(255, 245, 248, 0.8);
-    backdrop-filter: blur(var(--blur));
-    -webkit-backdrop-filter: blur(var(--blur));
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    padding: 12px 24px;
 }
 
 .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: var(--container-width);
+    margin: 0 auto;
 }
 
+/* Floating Pill Navbar - iOS 26 Style */
+.nav-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px 8px 20px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 107, 157, 0.15);
+    border-radius: 100px;
+    box-shadow:
+        0 4px 24px rgba(255, 107, 157, 0.12),
+        0 1px 2px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-pill:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 32px rgba(255, 107, 157, 0.2),
+        0 2px 8px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.navbar.scrolled .nav-pill {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 8px 40px rgba(255, 107, 157, 0.18),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+/* Logo */
 .logo {
     display: flex;
     align-items: center;
     gap: 10px;
     text-decoration: none;
     color: var(--text);
+    padding: 4px 8px;
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.logo:hover {
+    background: rgba(255, 107, 157, 0.08);
+    transform: scale(1.02);
 }
 
 .logo-icon {
     font-size: 1.5rem;
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 .logo-text {
     font-weight: 700;
     font-size: 1.1rem;
+    letter-spacing: -0.02em;
 }
 
+/* Nav Links - Pill Style */
 .nav-links {
     display: flex;
-    gap: 32px;
+    align-items: center;
+    gap: 4px;
 }
 
 .nav-links a {
+    position: relative;
     color: var(--text);
     text-decoration: none;
     font-weight: 500;
-    transition: var(--transition);
+    font-size: 0.95rem;
+    padding: 10px 18px;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(255, 143, 171, 0.1));
+    border-radius: 50px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-links a:hover::before {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .nav-links a:hover {
     color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.nav-links a span {
+    position: relative;
+    z-index: 1;
+}
+
+/* CTA Button in Navbar */
+.btn-nav {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-radius: 50px;
+    border: none;
+    box-shadow:
+        0 4px 16px rgba(255, 107, 157, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-nav::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-nav:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+        0 8px 28px rgba(255, 107, 157, 0.45),
+        0 4px 12px rgba(255, 107, 157, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-nav:hover::before {
+    opacity: 1;
+}
+
+.btn-nav:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Magnetic Hover Effect for Logo on Desktop */
+@media (hover: hover) {
+    .logo {
+        will-change: transform;
+    }
 }
 
 /* ============================================
@@ -415,7 +590,7 @@ h3 { font-size: 1.25rem; }
     margin-bottom: 12px;
 }
 
-.service-card > p {
+.service-card>p {
     color: var(--text-light);
     margin-bottom: 24px;
 }
@@ -547,7 +722,7 @@ h3 { font-size: 1.25rem; }
     align-items: flex-start;
     gap: 16px;
     padding: 16px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .comparison-item:last-child {
@@ -646,7 +821,7 @@ h3 { font-size: 1.25rem; }
     align-items: center;
     gap: 12px;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .pricing-features .check {
@@ -712,7 +887,7 @@ h3 { font-size: 1.25rem; }
     margin-bottom: 8px;
 }
 
-.portfolio-content > p {
+.portfolio-content>p {
     color: var(--text-light);
     font-size: 0.9rem;
     margin-bottom: 16px;
@@ -764,7 +939,7 @@ h3 { font-size: 1.25rem; }
     margin-bottom: -20px;
 }
 
-.testimonial-card > p {
+.testimonial-card>p {
     font-size: 1rem;
     color: var(--text);
     margin-bottom: 24px;
@@ -881,7 +1056,7 @@ h3 { font-size: 1.25rem; }
     text-decoration-style: wavy;
 }
 
-.cta-content > p {
+.cta-content>p {
     opacity: 0.9;
     margin-bottom: 32px;
     font-size: 1.1rem;
@@ -1015,6 +1190,7 @@ h3 { font-size: 1.25rem; }
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1032,68 +1208,68 @@ h3 { font-size: 1.25rem; }
     :root {
         --section-padding: 60px 0;
     }
-    
+
     .nav-links {
         display: none;
     }
-    
+
     .btn-nav {
         padding: 10px 20px;
         font-size: 0.85rem;
     }
-    
+
     .hero {
         min-height: auto;
         padding: 120px 0 60px;
     }
-    
+
     .hero-title {
         font-size: 2.25rem;
     }
-    
+
     .hero-cta {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .hero-cta .btn {
         width: 100%;
         max-width: 300px;
     }
-    
+
     .services-grid,
     .portfolio-grid,
     .testimonials-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .comparison-cards {
         grid-template-columns: 1fr;
     }
-    
+
     .process-grid {
         grid-template-columns: 1fr 1fr;
     }
-    
+
     .pricing-card {
         padding: 40px 24px;
     }
-    
+
     .pricing-price .price {
         font-size: 3rem;
     }
-    
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: 32px;
     }
-    
+
     .footer-bottom {
         flex-direction: column;
         gap: 16px;
         text-align: center;
     }
-    
+
     .heart {
         font-size: 60px;
     }
@@ -1103,12 +1279,12 @@ h3 { font-size: 1.25rem; }
     .process-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .hero-badges {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .footer-links {
         grid-template-columns: 1fr;
     }
