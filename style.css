@@ -449,6 +449,7 @@ h3 {
         0 8px 28px rgba(255, 107, 157, 0.45),
         0 4px 12px rgba(255, 107, 157, 0.25),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    color: white !important;
 }
 
 .btn-nav:hover::before {
@@ -678,9 +679,20 @@ h3 {
     transition: var(--transition);
 }
 
+/* Red theme for Agence/Freelance card */
+.comparison-card.other {
+    border-color: rgba(239, 68, 68, 0.3);
+    background: linear-gradient(180deg, rgba(239, 68, 68, 0.05) 0%, var(--bg-card) 100%);
+}
+
+.comparison-card.other .comparison-label {
+    background: #EF4444;
+}
+
+/* Green theme for Mehdi card */
 .comparison-card.me {
     border-color: var(--whatsapp);
-    background: linear-gradient(180deg, rgba(37, 211, 102, 0.05) 0%, var(--bg-card) 100%);
+    background: linear-gradient(180deg, rgba(37, 211, 102, 0.08) 0%, var(--bg-card) 100%);
 }
 
 .best-choice {
@@ -692,7 +704,7 @@ h3 {
     background: var(--whatsapp);
     color: var(--white);
     border-radius: var(--radius-xl);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 600;
     white-space: nowrap;
 }
@@ -709,11 +721,11 @@ h3 {
 
 .comparison-label {
     display: inline-block;
-    padding: 4px 12px;
-    background: var(--text-light);
+    padding: 6px 14px;
+    background: #EF4444;
     color: var(--white);
     border-radius: var(--radius-sm);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 600;
     margin-bottom: 8px;
 }
@@ -731,7 +743,15 @@ h3 {
 }
 
 .comparison-icon {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+}
+
+.comparison-icon.red {
+    font-size: 1.75rem;
+}
+
+.comparison-icon.green {
+    font-size: 1.75rem;
 }
 
 .comparison-item strong {
@@ -1116,11 +1136,36 @@ h3 {
 .cta-buttons .btn-whatsapp {
     background: var(--white);
     color: var(--whatsapp);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-buttons .btn-whatsapp::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(255, 255, 255, 0.6) 50%,
+            transparent 60%,
+            transparent 100%);
+    transform: translateX(-100%);
+    transition: none;
+}
+
+.cta-buttons .btn-whatsapp:hover::before {
+    transform: translateX(100%);
+    transition: transform 0.6s ease;
 }
 
 .cta-buttons .btn-whatsapp:hover {
     background: var(--bg);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
 }
 
 .cta-note {
@@ -1221,27 +1266,27 @@ h3 {
     justify-content: center;
     box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
     z-index: 1000;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    animation: whatsapp-bounce 3s ease-in-out infinite;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: whatsapp-pulse 2.5s ease-in-out infinite;
 }
 
-@keyframes whatsapp-bounce {
+@keyframes whatsapp-pulse {
 
     0%,
     100% {
-        transform: translateY(0) scale(1);
+        transform: scale(1);
         box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
     }
 
     50% {
-        transform: translateY(-6px) scale(1.02);
-        box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
     }
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.15) rotate(10deg);
-    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+    transform: scale(1.12);
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.55);
     animation: none;
 }
 
