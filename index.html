@@ -65,8 +65,24 @@
 </head>
 
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">💗</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Skip to Content (Accessibility) -->
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" aria-label="Changer de thème">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+    </button>
 
     <!-- Decorative Hearts Background -->
     <div class="hearts-bg" aria-hidden="true">
@@ -109,11 +125,11 @@
             <div class="container hero-container">
                 <div class="hero-badges">
                     <span class="badge">💎 Excellence & Sur-Mesure</span>
-                    <span class="badge">🏆 +50 Projets Livrés</span>
+                    <span class="badge">🏆 +<span class="counter" data-target="50">0</span> Projets Livrés</span>
                 </div>
                 <h1 class="hero-title">
                     Des solutions digitales<br>
-                    <span class="accent">d'exception.</span>
+                    <span class="accent gradient-text">d'exception.</span>
                 </h1>
                 <p class="hero-subtitle">
                     Sites web, applications sur-mesure.<br>

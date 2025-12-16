@@ -1,9 +1,191 @@
 /* ============================================
    MEHDI LOUMRHARI - Landing Page Scripts
-   Premium Animations
+   Premium Animations & Effects
    ============================================ */
 
+// ============================================
+// PAGE LOADER
+// ============================================
+window.addEventListener('load', () => {
+    const loader = document.querySelector('.page-loader');
+    if (loader) {
+        setTimeout(() => {
+            loader.classList.add('hidden');
+        }, 1500);
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    // ============================================
+    // CUSTOM CURSOR
+    // ============================================
+    const cursor = document.createElement('div');
+    cursor.className = 'cursor';
+    const follower = document.createElement('div');
+    follower.className = 'cursor-follower';
+    document.body.appendChild(cursor);
+    document.body.appendChild(follower);
+
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
+        cursor.classList.add('visible');
+        follower.classList.add('visible');
+    });
+
+    // Smooth follower
+    function animateFollower() {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        follower.style.left = cursorX + 'px';
+        follower.style.top = cursorY + 'px';
+        requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+
+    // Hover effect on interactive elements
+    const hoverElements = document.querySelectorAll('a, button, .portfolio-card, .service-card, .why-card');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    document.addEventListener('mouseleave', () => {
+        cursor.classList.remove('visible');
+        follower.classList.remove('visible');
+    });
+
+    // ============================================
+    // DARK MODE TOGGLE
+    // ============================================
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+    }
+
+    // ============================================
+    // 3D TILT EFFECT
+    // ============================================
+    const tiltCards = document.querySelectorAll('.portfolio-card, .service-card');
+    tiltCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
+    });
+
+    // ============================================
+    // MAGNETIC BUTTON EFFECT
+    // ============================================
+    const magneticBtns = document.querySelectorAll('.btn-whatsapp, .btn-whatsapp-nav');
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    });
+
+    // ============================================
+    // RIPPLE EFFECT ON BUTTONS
+    // ============================================
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            const rect = this.getBoundingClientRect();
+            ripple.style.left = (e.clientX - rect.left) + 'px';
+            ripple.style.top = (e.clientY - rect.top) + 'px';
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+
+    // ============================================
+    // COUNTER ANIMATION
+    // ============================================
+    const counters = document.querySelectorAll('.counter');
+    const animateCounter = (counter) => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const start = 0;
+        const startTime = performance.now();
+
+        const update = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            counter.textContent = Math.floor(start + (target - start) * easeOut);
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        requestAnimationFrame(update);
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                entry.target.classList.add('counted');
+                animateCounter(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
+
+    // ============================================
+    // TESTIMONIALS AUTO-SCROLL
+    // ============================================
+    const testimonialGrid = document.querySelector('.testimonials-grid');
+    if (testimonialGrid && window.innerWidth > 768) {
+        let scrollPos = 0;
+        const autoScroll = () => {
+            const cards = testimonialGrid.querySelectorAll('.testimonial-card');
+            if (cards.length > 0) {
+                scrollPos++;
+                if (scrollPos >= testimonialGrid.scrollWidth - testimonialGrid.clientWidth) {
+                    scrollPos = 0;
+                }
+                testimonialGrid.scrollLeft = scrollPos;
+            }
+        };
+        // Optional: Enable auto-scroll
+        // setInterval(autoScroll, 50);
+    }
+
 
     // ============================================
     // NAVBAR SCROLL EFFECT
