@@ -218,4 +218,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ============================================
+    // CONTACT FORM SUBMISSION (Web3Forms)
+    // ============================================
+    const contactForm = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (contactForm && formMessage && submitBtn) {
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoader = submitBtn.querySelector('.btn-loader');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Show loading state
+            if (btnText) btnText.style.display = 'none';
+            if (btnLoader) btnLoader.style.display = 'inline';
+            submitBtn.disabled = true;
+            formMessage.className = 'form-message';
+            formMessage.textContent = '';
+
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    formMessage.className = 'form-message success';
+                    formMessage.innerHTML = '✅ Message envoyé avec succès ! Je vous répondrai dans les 24h.';
+                    contactForm.reset();
+                } else {
+                    throw new Error(result.message || 'Erreur lors de l\'envoi');
+                }
+            } catch (error) {
+                formMessage.className = 'form-message error';
+                formMessage.innerHTML = '❌ Erreur lors de l\'envoi. Veuillez réessayer ou me contacter sur WhatsApp.';
+                console.error('Form error:', error);
+            } finally {
+                // Reset button state
+                if (btnText) btnText.style.display = 'inline';
+                if (btnLoader) btnLoader.style.display = 'none';
+                submitBtn.disabled = false;
+            }
+        });
+    }
+
 });
