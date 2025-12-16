@@ -1062,37 +1062,11 @@ h3 {
 
 .cta-buttons .btn-whatsapp {
     background: var(--white);
-    color: var(--whatsapp);
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-buttons .btn-whatsapp::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg,
-            transparent 0%,
-            transparent 40%,
-            rgba(255, 255, 255, 0.6) 50%,
-            transparent 60%,
-            transparent 100%);
-    transform: translateX(-100%);
-    transition: none;
-}
-
-.cta-buttons .btn-whatsapp:hover::before {
-    transform: translateX(100%);
-    transition: transform 0.6s ease;
+    color: #25D366 !important;
 }
 
 .cta-buttons .btn-whatsapp:hover {
-    background: var(--bg);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+    background: #f0f0f0;
 }
 
 .cta-note {
