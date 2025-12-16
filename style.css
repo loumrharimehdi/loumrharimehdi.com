@@ -653,120 +653,51 @@ h3 {
 }
 
 /* ============================================
-   COMPARISON SECTION
+   WHY CHOOSE ME SECTION
    ============================================ */
-.comparison {
+.why-choose {
     padding: var(--section-padding);
     position: relative;
     z-index: 1;
 }
 
-.comparison-cards {
+.why-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-    max-width: 900px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
 }
 
-.comparison-card {
-    position: relative;
+.why-card {
     background: var(--bg-card);
     backdrop-filter: blur(var(--blur));
-    border: 2px solid var(--border);
+    -webkit-backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 32px;
+    text-align: center;
     transition: var(--transition);
 }
 
-/* Red theme for Agence/Freelance card */
-.comparison-card.other {
-    border-color: rgba(239, 68, 68, 0.3);
-    background: linear-gradient(180deg, rgba(239, 68, 68, 0.05) 0%, var(--bg-card) 100%);
+.why-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
 }
 
-.comparison-card.other .comparison-label {
-    background: #EF4444;
+.why-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
 }
 
-/* Green theme for Mehdi card */
-.comparison-card.me {
-    border-color: var(--whatsapp);
-    background: linear-gradient(180deg, rgba(37, 211, 102, 0.08) 0%, var(--bg-card) 100%);
+.why-card h3 {
+    margin-bottom: 12px;
+    font-size: 1.15rem;
 }
 
-.best-choice {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 8px 20px;
-    background: var(--whatsapp);
-    color: var(--white);
-    border-radius: var(--radius-xl);
-    font-size: 0.85rem;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.comparison-header {
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-}
-
-.comparison-header h3 {
-    font-size: 1.3rem;
-}
-
-.comparison-label {
-    display: inline-block;
-    padding: 6px 14px;
-    background: #EF4444;
-    color: var(--white);
-    border-radius: var(--radius-sm);
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.comparison-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.comparison-item:last-child {
-    border-bottom: none;
-}
-
-.comparison-icon {
-    font-size: 1.5rem;
-}
-
-.comparison-icon.red {
-    font-size: 1.75rem;
-}
-
-.comparison-icon.green {
-    font-size: 1.75rem;
-}
-
-.comparison-item strong {
-    display: block;
-    font-size: 0.85rem;
+.why-card p {
     color: var(--text-light);
-    margin-bottom: 4px;
-}
-
-.comparison-item p {
-    font-weight: 600;
-}
-
-.comparison-item p.highlight {
-    color: var(--whatsapp);
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 /* ============================================
