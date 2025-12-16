@@ -747,6 +747,14 @@ h3 {
     display: block;
 }
 
+.pricing-price .price-prefix {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
 .pricing-price .price {
     font-size: 4rem;
     font-weight: 800;
@@ -758,6 +766,7 @@ h3 {
     color: var(--primary);
     font-weight: 600;
     font-size: 0.95rem;
+    margin-top: 8px;
 }
 
 .pricing-features {
