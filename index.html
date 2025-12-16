@@ -22,10 +22,12 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mehdi Loumrhari - Création Web & Applications">
     <meta name="twitter:description" content="Sites web, apps web et mobiles. Design premium sur mesure.">
+    <meta name="twitter:image" content="https://loumrharimehdi.com/assets/og-image.png">
 
-    <!-- Theme Color -->
+    <!-- Theme Color & Canonical -->
     <meta name="theme-color" content="#FF6B9D">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://loumrharimehdi.com/">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml"
@@ -63,6 +65,9 @@
 </head>
 
 <body>
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
     <!-- Decorative Hearts Background -->
     <div class="hearts-bg" aria-hidden="true">
         <div class="heart heart-1">💗</div>
@@ -72,19 +77,25 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
         <div class="nav-container">
             <div class="nav-pill">
                 <a href="#" class="logo">
                     <span class="logo-icon">💗</span>
                     <span class="logo-text">Mehdi <span class="accent">Loumrhari</span></span>
                 </a>
-                <div class="nav-links">
+                <div class="nav-links" id="nav-links">
                     <a href="#services"><span>Services</span></a>
                     <a href="#tarifs"><span>Tarifs</span></a>
                     <a href="#portfolio"><span>Projets</span></a>
                     <a href="blog.html"><span>Blog</span></a>
                 </div>
+                <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false"
+                    aria-controls="nav-links">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
                 <a href="https://wa.me/212711152775" class="btn btn-whatsapp-nav" target="_blank"
                     rel="noopener">Contact</a>
             </div>
@@ -93,423 +104,434 @@
 
 
     <!-- Hero Section -->
-    <header class="hero" id="hero">
-        <div class="container hero-container">
-            <div class="hero-badges">
-                <span class="badge">💎 Excellence & Sur-Mesure</span>
-                <span class="badge">🏆 +50 Projets Livrés</span>
+    <main id="main-content">
+        <header class="hero" id="hero">
+            <div class="container hero-container">
+                <div class="hero-badges">
+                    <span class="badge">💎 Excellence & Sur-Mesure</span>
+                    <span class="badge">🏆 +50 Projets Livrés</span>
+                </div>
+                <h1 class="hero-title">
+                    Des solutions digitales<br>
+                    <span class="accent">d'exception.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Sites web, applications sur-mesure.<br>
+                    Une expertise technique au service de votre ambition.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://wa.me/212711152775" class="btn btn-whatsapp btn-large" target="_blank"
+                        rel="noopener">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        Discuter de mon projet
+                    </a>
+                    <a href="#portfolio" class="btn btn-secondary">Découvrir mes réalisations</a>
+                </div>
             </div>
-            <h1 class="hero-title">
-                Des solutions digitales<br>
-                <span class="accent">d'exception.</span>
-            </h1>
-            <p class="hero-subtitle">
-                Sites web, applications sur-mesure.<br>
-                Une expertise technique au service de votre ambition.
-            </p>
-            <div class="hero-cta">
-                <a href="https://wa.me/212711152775" class="btn btn-whatsapp btn-large" target="_blank" rel="noopener">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                    </svg>
-                    Discuter de mon projet
-                </a>
-                <a href="#portfolio" class="btn btn-secondary">Découvrir mes réalisations</a>
-            </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">🎯 Services</span>
-                <h2>Ce que je <span class="accent">développe pour vous</span></h2>
-                <p>Des solutions digitales adaptées à vos besoins</p>
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">🎯 Services</span>
+                    <h2>Ce que je <span class="accent">développe pour vous</span></h2>
+                    <p>Des solutions digitales adaptées à vos besoins</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🌐</div>
+                        <h3>Site Web</h3>
+                        <p>Landing pages, sites vitrines, portfolios. Design moderne et optimisé SEO.</p>
+                        <ul class="service-features">
+                            <li>✓ Responsive mobile</li>
+                            <li>✓ SEO optimisé</li>
+                            <li>✓ Performance A+</li>
+                        </ul>
+                    </div>
+                    <div class="service-card featured">
+                        <span class="card-badge">Populaire</span>
+                        <div class="service-icon">💻</div>
+                        <h3>App Web</h3>
+                        <p>Applications web sur mesure. Dashboards, SaaS, outils métier.</p>
+                        <ul class="service-features">
+                            <li>✓ Interface intuitive</li>
+                            <li>✓ Base de données</li>
+                            <li>✓ API sécurisée</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📱</div>
+                        <h3>App Mobile</h3>
+                        <p>Applications iOS et Android natives ou hybrides.</p>
+                        <ul class="service-features">
+                            <li>✓ iOS & Android</li>
+                            <li>✓ Notifications push</li>
+                            <li>✓ Publication stores</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>Site Web</h3>
-                    <p>Landing pages, sites vitrines, portfolios. Design moderne et optimisé SEO.</p>
-                    <ul class="service-features">
-                        <li>✓ Responsive mobile</li>
-                        <li>✓ SEO optimisé</li>
-                        <li>✓ Performance A+</li>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">⚡ Processus</span>
+                    <h2>Comment ça <span class="accent">fonctionne</span></h2>
+                    <p>4 étapes simples vers votre projet</p>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Consultation</h3>
+                        <p>Nous échangeons sur votre projet. Vous m'expliquez votre vision et vos objectifs.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Design Gratuit</h3>
+                        <p>Je crée la maquette gratuitement. Vous validez avant tout engagement.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Acompte & Développement</h3>
+                        <p>50% d'acompte pour lancer le projet. Je développe votre site.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Livraison & Solde</h3>
+                        <p>Mise en ligne, formation et support. Solde par virement à la livraison.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Me Section -->
+        <section class="why-choose" id="pourquoi">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">💎 Avantages</span>
+                    <h2>Pourquoi me <span class="accent">choisir</span></h2>
+                    <p>Une expertise professionnelle à votre service</p>
+                </div>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <div class="why-icon">🎯</div>
+                        <h3>Expertise Technique</h3>
+                        <p>Maîtrise complète des technologies modernes. React, Next.js, Node.js, et plus encore pour des
+                            projets performants.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">✨</div>
+                        <h3>Qualité Premium</h3>
+                        <p>Design soigné, code propre et maintenable. Chaque projet est réalisé avec les standards les
+                            plus
+                            élevés.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">⚡</div>
+                        <h3>Réactivité</h3>
+                        <p>Communication fluide et délais respectés. Disponible 7j/7 pour répondre à vos questions et
+                            avancer sur votre projet.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">🤝</div>
+                        <h3>Accompagnement Complet</h3>
+                        <p>De la conception à la mise en ligne, un suivi personnalisé. Formation et support inclus après
+                            livraison.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing" id="tarifs">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">💎 Tarif</span>
+                    <h2>Tarif <span class="accent">Unique</span></h2>
+                    <p>Une offre transparente. Tout est inclus.</p>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-badge">🔥 Places limitées cette semaine</div>
+                    <div class="pricing-header">
+                        <span class="pricing-label">CRÉATION SUR MESURE</span>
+                        <div class="pricing-price">
+                            <span class="price-prefix">À partir de</span>
+                            <span class="price">1 990€</span>
+                            <span class="price-note">Devis personnalisé selon votre projet</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>
+                            <span class="check">✓</span>
+                            Design Gratuit avant engagement
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            Design Premium Sur Mesure
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            Compatible Mobile & Tablette
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            Intégration de vos Textes & Images
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            Hébergement & Domaine (1ère année)
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            Support dédié 7j/7
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            Formation pour gérer votre site
+                        </li>
                     </ul>
-                </div>
-                <div class="service-card featured">
-                    <span class="card-badge">Populaire</span>
-                    <div class="service-icon">💻</div>
-                    <h3>App Web</h3>
-                    <p>Applications web sur mesure. Dashboards, SaaS, outils métier.</p>
-                    <ul class="service-features">
-                        <li>✓ Interface intuitive</li>
-                        <li>✓ Base de données</li>
-                        <li>✓ API sécurisée</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>App Mobile</h3>
-                    <p>Applications iOS et Android natives ou hybrides.</p>
-                    <ul class="service-features">
-                        <li>✓ iOS & Android</li>
-                        <li>✓ Notifications push</li>
-                        <li>✓ Publication stores</li>
-                    </ul>
+                    <a href="https://wa.me/212711152775" class="btn btn-whatsapp btn-full" target="_blank"
+                        rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        Démarrer mon projet →
+                    </a>
+                    <p class="pricing-guarantee">Design offert. Acompte uniquement si vous validez le design.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Process Section -->
-    <section class="process">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">⚡ Processus</span>
-                <h2>Comment ça <span class="accent">fonctionne</span></h2>
-                <p>4 étapes simples vers votre projet</p>
+        <!-- Portfolio Section -->
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">🎨 Réalisations</span>
+                    <h2>Mes derniers <span class="accent">projets</span></h2>
+                    <p>Des exemples concrets de mon travail</p>
+                </div>
+                <div class="portfolio-grid">
+                    <a href="https://simsar.ma" target="_blank" rel="noopener" class="portfolio-card">
+                        <div class="portfolio-image"
+                            style="background: linear-gradient(135deg, #FF6B9D 0%, #FFB366 100%);">
+                            <span class="portfolio-tag">Immobilier</span>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Simsar.ma</h3>
+                            <p>Plateforme immobilière 100% vérifiée</p>
+                            <div class="portfolio-tech">
+                                <span>React</span>
+                                <span>Next.js</span>
+                                <span>Tailwind</span>
+                            </div>
+                            <span class="portfolio-link">Voir le site →</span>
+                        </div>
+                    </a>
+                    <a href="https://mehdiloumrhari.agency" target="_blank" rel="noopener" class="portfolio-card">
+                        <div class="portfolio-image"
+                            style="background: linear-gradient(135deg, #6B7DFF 0%, #00D4AA 100%);">
+                            <span class="portfolio-tag">Agence</span>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Loumrhari Agency</h3>
+                            <p>Site vitrine pour agence digitale</p>
+                            <div class="portfolio-tech">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <span class="portfolio-link">Voir le site →</span>
+                        </div>
+                    </a>
+                    <a href="https://myprestige.vercel.app" target="_blank" rel="noopener" class="portfolio-card">
+                        <div class="portfolio-image"
+                            style="background: linear-gradient(135deg, #00D4AA 0%, #6B7DFF 100%);">
+                            <span class="portfolio-tag">Prestige</span>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>My Prestige</h3>
+                            <p>Site vitrine premium conciergerie</p>
+                            <div class="portfolio-tech">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <span class="portfolio-link">Voir le site →</span>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Consultation</h3>
-                    <p>Nous échangeons sur votre projet. Vous m'expliquez votre vision et vos objectifs.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Design Gratuit</h3>
-                    <p>Je crée la maquette gratuitement. Vous validez avant tout engagement.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Acompte & Développement</h3>
-                    <p>50% d'acompte pour lancer le projet. Je développe votre site.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Livraison & Solde</h3>
-                    <p>Mise en ligne, formation et support. Solde par virement à la livraison.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Why Choose Me Section -->
-    <section class="why-choose" id="pourquoi">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">💎 Avantages</span>
-                <h2>Pourquoi me <span class="accent">choisir</span></h2>
-                <p>Une expertise professionnelle à votre service</p>
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">⭐ Témoignages</span>
+                    <h2>Ce que disent <span class="accent">mes clients</span></h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p>"Mehdi a complètement transformé ma présence en ligne. Mon site génère maintenant 3x plus de
+                            demandes de devis qu'avant. Un vrai professionnel !"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SM</div>
+                            <div>
+                                <strong>Sophie Martin</strong>
+                                <span>Fondatrice, Beauté Bio</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p>"Réactif, professionnel et créatif. J'ai reçu mon site en 3 jours et il est exactement comme
+                            je
+                            l'imaginais. Je recommande à 100% !"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">KB</div>
+                            <div>
+                                <strong>Karim Benali</strong>
+                                <span>Coach sportif</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p>"Le meilleur investissement pour mon business. Design moderne, rapide à charger et mes
+                            clients
+                            adorent. Merci Mehdi !"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">LA</div>
+                            <div>
+                                <strong>Leila Amrani</strong>
+                                <span>Consultante RH</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                </div>
             </div>
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-icon">🎯</div>
-                    <h3>Expertise Technique</h3>
-                    <p>Maîtrise complète des technologies modernes. React, Next.js, Node.js, et plus encore pour des
-                        projets performants.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">✨</div>
-                    <h3>Qualité Premium</h3>
-                    <p>Design soigné, code propre et maintenable. Chaque projet est réalisé avec les standards les plus
-                        élevés.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">⚡</div>
-                    <h3>Réactivité</h3>
-                    <p>Communication fluide et délais respectés. Disponible 7j/7 pour répondre à vos questions et
-                        avancer sur votre projet.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">🤝</div>
-                    <h3>Accompagnement Complet</h3>
-                    <p>De la conception à la mise en ligne, un suivi personnalisé. Formation et support inclus après
-                        livraison.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="tarifs">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">💎 Tarif</span>
-                <h2>Tarif <span class="accent">Unique</span></h2>
-                <p>Une offre transparente. Tout est inclus.</p>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-badge">🔥 Places limitées cette semaine</div>
-                <div class="pricing-header">
-                    <span class="pricing-label">CRÉATION SUR MESURE</span>
-                    <div class="pricing-price">
-                        <span class="price-prefix">À partir de</span>
-                        <span class="price">1 990€</span>
-                        <span class="price-note">Devis personnalisé selon votre projet</span>
-                    </div>
+        <!-- FAQ Section -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">❓ FAQ</span>
+                    <h2>Questions <span class="accent">fréquentes</span></h2>
                 </div>
-                <ul class="pricing-features">
-                    <li>
-                        <span class="check">✓</span>
-                        Design Gratuit avant engagement
-                    </li>
-                    <li>
-                        <span class="check">✓</span>
-                        Design Premium Sur Mesure
-                    </li>
-                    <li>
-                        <span class="check">✓</span>
-                        Compatible Mobile & Tablette
-                    </li>
-                    <li>
-                        <span class="check">✓</span>
-                        Intégration de vos Textes & Images
-                    </li>
-                    <li>
-                        <span class="check">✓</span>
-                        Hébergement & Domaine (1ère année)
-                    </li>
-                    <li>
-                        <span class="check">✓</span>
-                        Support dédié 7j/7
-                    </li>
-                    <li>
-                        <span class="check">✓</span>
-                        Formation pour gérer votre site
-                    </li>
-                </ul>
-                <a href="https://wa.me/212711152775" class="btn btn-whatsapp btn-full" target="_blank" rel="noopener">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                    </svg>
-                    Démarrer mon projet →
-                </a>
-                <p class="pricing-guarantee">Design offert. Acompte uniquement si vous validez le design.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">🎨 Réalisations</span>
-                <h2>Mes derniers <span class="accent">projets</span></h2>
-                <p>Des exemples concrets de mon travail</p>
-            </div>
-            <div class="portfolio-grid">
-                <a href="https://simsar.ma" target="_blank" rel="noopener" class="portfolio-card">
-                    <div class="portfolio-image" style="background: linear-gradient(135deg, #FF6B9D 0%, #FFB366 100%);">
-                        <span class="portfolio-tag">Immobilier</span>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Simsar.ma</h3>
-                        <p>Plateforme immobilière 100% vérifiée</p>
-                        <div class="portfolio-tech">
-                            <span>React</span>
-                            <span>Next.js</span>
-                            <span>Tailwind</span>
-                        </div>
-                        <span class="portfolio-link">Voir le site →</span>
-                    </div>
-                </a>
-                <a href="https://mehdiloumrhari.agency" target="_blank" rel="noopener" class="portfolio-card">
-                    <div class="portfolio-image" style="background: linear-gradient(135deg, #6B7DFF 0%, #00D4AA 100%);">
-                        <span class="portfolio-tag">Agence</span>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Loumrhari Agency</h3>
-                        <p>Site vitrine pour agence digitale</p>
-                        <div class="portfolio-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <span class="portfolio-link">Voir le site →</span>
-                    </div>
-                </a>
-                <a href="https://myprestige.vercel.app" target="_blank" rel="noopener" class="portfolio-card">
-                    <div class="portfolio-image" style="background: linear-gradient(135deg, #00D4AA 0%, #6B7DFF 100%);">
-                        <span class="portfolio-tag">Prestige</span>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>My Prestige</h3>
-                        <p>Site vitrine premium conciergerie</p>
-                        <div class="portfolio-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <span class="portfolio-link">Voir le site →</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">⭐ Témoignages</span>
-                <h2>Ce que disent <span class="accent">mes clients</span></h2>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p>"Mehdi a complètement transformé ma présence en ligne. Mon site génère maintenant 3x plus de
-                        demandes de devis qu'avant. Un vrai professionnel !"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SM</div>
-                        <div>
-                            <strong>Sophie Martin</strong>
-                            <span>Fondatrice, Beauté Bio</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-stars">★★★★★</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p>"Réactif, professionnel et créatif. J'ai reçu mon site en 3 jours et il est exactement comme je
-                        l'imaginais. Je recommande à 100% !"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">KB</div>
-                        <div>
-                            <strong>Karim Benali</strong>
-                            <span>Coach sportif</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-stars">★★★★★</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p>"Le meilleur investissement pour mon business. Design moderne, rapide à charger et mes clients
-                        adorent. Merci Mehdi !"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">LA</div>
-                        <div>
-                            <strong>Leila Amrani</strong>
-                            <span>Consultante RH</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-stars">★★★★★</div>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>Combien de temps pour créer mon site ?</summary>
+                        <p>Entre 7 et 14 jours selon la complexité du projet. Un site vitrine simple peut être livré en
+                            une
+                            semaine. Une application web plus complexe prendra 10-14 jours.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Puis-je modifier mon site moi-même ensuite ?</summary>
+                        <p>Oui ! Je vous forme à la gestion de votre site. Vous pourrez modifier textes, images et
+                            contenus
+                            en toute autonomie. Et si besoin, je reste disponible sur WhatsApp.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Le design est-il vraiment gratuit ?</summary>
+                        <p>Oui, je réalise la maquette gratuitement. Vous voyez le résultat avant de vous engager. Si le
+                            design ne vous plaît pas, on arrête là, zéro frais.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Que comprend le tarif de 1 990€ ?</summary>
+                        <p>Tout est inclus : design gratuit en amont, développement sur mesure, responsive mobile,
+                            hébergement et nom de domaine (1ère année), formation et support 7j/7.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Comment se passe le paiement ?</summary>
+                        <p>Design offert puis 50% d'acompte pour lancer le développement. Le solde (50%) est réglé par
+                            virement bancaire à la livraison, une fois que vous avez validé le résultat final.</p>
+                    </details>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">❓ FAQ</span>
-                <h2>Questions <span class="accent">fréquentes</span></h2>
-            </div>
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary>Combien de temps pour créer mon site ?</summary>
-                    <p>Entre 7 et 14 jours selon la complexité du projet. Un site vitrine simple peut être livré en une
-                        semaine. Une application web plus complexe prendra 10-14 jours.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Puis-je modifier mon site moi-même ensuite ?</summary>
-                    <p>Oui ! Je vous forme à la gestion de votre site. Vous pourrez modifier textes, images et contenus
-                        en toute autonomie. Et si besoin, je reste disponible sur WhatsApp.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Le design est-il vraiment gratuit ?</summary>
-                    <p>Oui, je réalise la maquette gratuitement. Vous voyez le résultat avant de vous engager. Si le
-                        design ne vous plaît pas, on arrête là, zéro frais.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Que comprend le tarif de 1 990€ ?</summary>
-                    <p>Tout est inclus : design gratuit en amont, développement sur mesure, responsive mobile,
-                        hébergement et nom de domaine (1ère année), formation et support 7j/7.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Comment se passe le paiement ?</summary>
-                    <p>Design offert puis 50% d'acompte pour lancer le développement. Le solde (50%) est réglé par
-                        virement bancaire à la livraison, une fois que vous avez validé le résultat final.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">✉️ Contact</span>
-                <h2>Parlons de <span class="accent">votre projet</span></h2>
-                <p>Remplissez le formulaire ou contactez-moi directement</p>
-            </div>
-            <div class="contact-wrapper">
-                <div class="contact-form-container">
-                    <form class="contact-form" id="contact-form">
-                        <!-- Web3Forms Configuration -->
-                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-                        <input type="hidden" name="subject" value="Nouveau message - loumrharimehdi.com">
-                        <input type="hidden" name="from_name" value="Portfolio Contact">
-                        <!-- Honeypot Spam Protection -->
-                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                        <div id="form-message" class="form-message"></div>
-
-                        <div class="form-group">
-                            <label for="name">Nom complet</label>
-                            <input type="text" id="name" name="name" placeholder="Votre nom" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="project">Type de projet</label>
-                            <select id="project" name="project" required>
-                                <option value="">Sélectionnez un type</option>
-                                <option value="site-vitrine">Site Vitrine</option>
-                                <option value="app-web">Application Web</option>
-                                <option value="app-mobile">Application Mobile</option>
-                                <option value="autre">Autre</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Votre message</label>
-                            <textarea id="message" name="message" placeholder="Décrivez votre projet..." rows="4"
-                                required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-whatsapp btn-full" id="submit-btn">
-                            <span class="btn-text">Envoyer ma demande</span>
-                            <span class="btn-loader" style="display: none;">Envoi en cours...</span>
-                        </button>
-                    </form>
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">✉️ Contact</span>
+                    <h2>Parlons de <span class="accent">votre projet</span></h2>
+                    <p>Remplissez le formulaire ou contactez-moi directement</p>
                 </div>
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-icon">📱</div>
-                        <h3>WhatsApp</h3>
-                        <p>Réponse en moins de 2h</p>
-                        <a href="https://wa.me/212711152775" class="btn btn-whatsapp" target="_blank" rel="noopener">
-                            +212 711 152 775
-                        </a>
+                <div class="contact-wrapper">
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contact-form">
+                            <!-- Web3Forms Configuration -->
+                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                            <input type="hidden" name="subject" value="Nouveau message - loumrharimehdi.com">
+                            <input type="hidden" name="from_name" value="Portfolio Contact">
+                            <!-- Honeypot Spam Protection -->
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                            <div id="form-message" class="form-message"></div>
+
+                            <div class="form-group">
+                                <label for="name">Nom complet</label>
+                                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="project">Type de projet</label>
+                                <select id="project" name="project" required>
+                                    <option value="">Sélectionnez un type</option>
+                                    <option value="site-vitrine">Site Vitrine</option>
+                                    <option value="app-web">Application Web</option>
+                                    <option value="app-mobile">Application Mobile</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Votre message</label>
+                                <textarea id="message" name="message" placeholder="Décrivez votre projet..." rows="4"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-whatsapp btn-full" id="submit-btn">
+                                <span class="btn-text">Envoyer ma demande</span>
+                                <span class="btn-loader" style="display: none;">Envoi en cours...</span>
+                            </button>
+                        </form>
                     </div>
-                    <div class="contact-card">
-                        <div class="contact-icon">✉️</div>
-                        <h3>Email</h3>
-                        <p>Pour les demandes détaillées</p>
-                        <a href="mailto:loumrhari.mehdi@gmail.com" class="contact-link">
-                            loumrhari.mehdi@gmail.com
-                        </a>
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">📱</div>
+                            <h3>WhatsApp</h3>
+                            <p>Réponse en moins de 2h</p>
+                            <a href="https://wa.me/212711152775" class="btn btn-whatsapp" target="_blank"
+                                rel="noopener">
+                                +212 711 152 775
+                            </a>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">✉️</div>
+                            <h3>Email</h3>
+                            <p>Pour les demandes détaillées</p>
+                            <a href="mailto:loumrhari.mehdi@gmail.com" class="contact-link">
+                                loumrhari.mehdi@gmail.com
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
