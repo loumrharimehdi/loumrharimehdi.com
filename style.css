@@ -540,39 +540,7 @@ h3 {
     margin-bottom: 48px;
 }
 
-.hero-trust {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    color: var(--text-light);
-    font-size: 0.9rem;
-}
 
-.trust-avatars {
-    display: flex;
-}
-
-.trust-avatars .avatar {
-    width: 36px;
-    height: 36px;
-    background: var(--primary-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: -8px;
-    border: 2px solid var(--white);
-    font-size: 0.9rem;
-}
-
-.trust-avatars .avatar:first-child {
-    margin-left: 0;
-}
-
-.stars {
-    color: #FFC107;
-}
 
 /* ============================================
    SERVICES SECTION
@@ -1300,9 +1268,7 @@ h3 {
         grid-template-columns: 1fr;
     }
 
-    .comparison-cards {
-        grid-template-columns: 1fr;
-    }
+
 
     .process-grid {
         grid-template-columns: 1fr 1fr;
