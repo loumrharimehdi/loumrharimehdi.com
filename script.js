@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     const observerOptions = {
         root: null,
-        rootMargin: '0px 0px -100px 0px',
+        rootMargin: '50px 0px -50px 0px',
         threshold: 0.1
     };
 
@@ -115,22 +115,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Elements to animate with different effects
+    // Elements to animate with different effects (hero elements excluded for immediate display)
     const animatableElements = [
         { selector: '.service-card', animation: 'fade-up' },
         { selector: '.process-step', animation: 'fade-up' },
-        { selector: '.comparison-card', animation: 'fade-scale' },
+        { selector: '.why-card', animation: 'fade-up' },
         { selector: '.portfolio-card', animation: 'fade-up' },
         { selector: '.testimonial-card', animation: 'fade-up' },
         { selector: '.faq-item', animation: 'fade-up' },
         { selector: '.pricing-card', animation: 'fade-scale' },
-        { selector: '.section-header', animation: 'fade-up' },
-        { selector: '.hero-badges', animation: 'fade-up' },
-        { selector: '.hero-title', animation: 'fade-up' },
-        { selector: '.hero-subtitle', animation: 'fade-up' },
-        { selector: '.hero-cta', animation: 'fade-up' },
-        { selector: '.hero-trust', animation: 'fade-up' }
+        { selector: '.section-header', animation: 'fade-up' }
     ];
+
+    // Hero elements animate immediately on load
+    const heroElements = [
+        '.hero-badges',
+        '.hero-title',
+        '.hero-subtitle',
+        '.hero-cta'
+    ];
+
+    heroElements.forEach((selector, index) => {
+        const el = document.querySelector(selector);
+        if (el) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+            setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, 100 + (index * 150));
+        }
+    });
 
     animatableElements.forEach(({ selector, animation }) => {
         document.querySelectorAll(selector).forEach(el => {
