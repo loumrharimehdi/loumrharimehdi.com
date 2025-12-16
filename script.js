@@ -233,26 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
             50% { opacity: 0.6; transform: scale(1.02); }
         }
         
-        /* Button Shine Effect */
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.3),
-                transparent
-            );
-            transition: left 0.5s ease;
-        }
-        
-        .btn:hover::after {
-            left: 100%;
-        }
+
         
         /* Service Icon Bounce */
         .service-icon {
