@@ -194,16 +194,39 @@ h3 {
     background: rgba(255, 107, 157, 0.05);
 }
 
-/* WhatsApp Buttons - Unified Design */
+/* WhatsApp Buttons - Premium Unified Design */
 .btn-whatsapp {
-    background: #25D366;
+    background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
     color: var(--white) !important;
     border: none;
-    transition: all 0.2s ease;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-whatsapp::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #2EE370 0%, #25D366 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .btn-whatsapp:hover {
-    background: #1DA851;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:hover::before {
+    opacity: 1;
+}
+
+.btn-whatsapp svg,
+.btn-whatsapp span {
+    position: relative;
+    z-index: 1;
 }
 
 .btn-whatsapp svg {
@@ -218,17 +241,34 @@ h3 {
     padding: 12px 24px;
     font-size: 0.9rem;
     font-weight: 600;
-    background: #25D366;
+    background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
     color: white !important;
     border-radius: 50px;
     border: none;
     text-decoration: none;
-    transition: all 0.2s ease;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-whatsapp-nav::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #2EE370 0%, #25D366 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .btn-whatsapp-nav:hover {
-    background: #1DA851;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp-nav:hover::before {
+    opacity: 1;
 }
 
 .btn-full {
@@ -1151,7 +1191,7 @@ h3 {
 }
 
 /* ============================================
-   FLOATING WHATSAPP BUTTON
+   FLOATING WHATSAPP BUTTON - Premium
    ============================================ */
 .whatsapp-float {
     position: fixed;
@@ -1159,19 +1199,29 @@ h3 {
     right: 28px;
     width: 60px;
     height: 60px;
-    background: #25D366;
+    background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
     color: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     border: none;
 }
 
 .whatsapp-float:hover {
-    background: #1DA851;
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-float svg {
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover svg {
+    transform: scale(1.1);
 }
 
 /* ============================================
