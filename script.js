@@ -295,21 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
             color: var(--primary);
         }
         
-        /* WhatsApp Float Pulse */
-        .whatsapp-float {
-            animation: whatsapp-pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes whatsapp-pulse {
-            0%, 100% { 
-                transform: scale(1);
-                box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
-            }
-            50% { 
-                transform: scale(1.05);
-                box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6);
-            }
-        }
+
         
         /* Badge Hover */
         .badge {
@@ -339,23 +325,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(style);
 
     // ============================================
-    // MAGNETIC HOVER EFFECT FOR BUTTONS
+    // MAGNETIC HOVER EFFECT REMOVED
     // ============================================
-    const magneticElements = document.querySelectorAll('.btn-nav, .btn-whatsapp');
-
-    magneticElements.forEach(elem => {
-        elem.addEventListener('mousemove', (e) => {
-            const rect = elem.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-
-            elem.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
-        });
-
-        elem.addEventListener('mouseleave', () => {
-            elem.style.transform = 'translate(0, 0)';
-        });
-    });
 
     // ============================================
     // PARALLAX HEARTS BACKGROUND
