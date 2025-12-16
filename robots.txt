@@ -1,0 +1,10 @@
+# Robots.txt - loumrharimehdi.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://loumrharimehdi.com/sitemap.xml
+
+# Disallow admin/private
+Disallow: /.git/
+Disallow: /.vercel/

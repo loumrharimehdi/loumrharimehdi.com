@@ -866,6 +866,25 @@ h3 {
     color: var(--text-light);
 }
 
+a.portfolio-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.portfolio-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+a.portfolio-card:hover .portfolio-link {
+    color: var(--primary-dark);
+}
+
 /* ============================================
    TESTIMONIALS SECTION
    ============================================ */
@@ -1164,7 +1183,7 @@ h3 {
     .contact-wrapper {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-form-container {
         padding: 24px;
     }
@@ -1336,6 +1355,8 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
     padding-top: 24px;
     border-top: 1px solid var(--border);
 }
@@ -1343,6 +1364,21 @@ h3 {
 .footer-bottom p {
     color: var(--text-light);
     font-size: 0.9rem;
+}
+
+.footer-credit {
+    font-size: 0.85rem;
+}
+
+.footer-credit a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.footer-credit a:hover {
+    color: var(--primary-dark);
 }
 
 .footer-social {

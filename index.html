@@ -12,13 +12,29 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="Mehdi Loumrhari - Création Web & Applications">
-    <meta property="og:description" content="Sites web, apps web et mobiles. Design premium à 290€.">
+    <meta property="og:description" content="Sites web, apps web et mobiles. Design premium sur mesure.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://loumrharimehdi.com">
+    <meta property="og:image" content="https://loumrharimehdi.com/assets/og-image.png">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mehdi Loumrhari - Création Web & Applications">
+    <meta name="twitter:description" content="Sites web, apps web et mobiles. Design premium sur mesure.">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#FF6B9D">
+    <meta name="robots" content="index, follow">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💗</text></svg>">
+    <link rel="apple-touch-icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💗</text></svg>">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +43,23 @@
 
     <title>Mehdi Loumrhari - Création Site Web, App Web & Mobile</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Mehdi Loumrhari - Développeur Web",
+      "description": "Création de sites web, applications web et mobiles sur mesure",
+      "url": "https://loumrharimehdi.com",
+      "telephone": "+212711152775",
+      "email": "loumrhari.mehdi@gmail.com",
+      "priceRange": "€€",
+      "areaServed": ["Maroc", "France", "International"],
+      "serviceType": ["Création de site web", "Application web", "Application mobile"],
+      "sameAs": ["https://mehdiloumrhari.agency"]
+    }
+    </script>
 </head>
 
 <body>
@@ -270,7 +303,7 @@
                 <p>Des exemples concrets de mon travail</p>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-card">
+                <a href="https://simsar.ma" target="_blank" rel="noopener" class="portfolio-card">
                     <div class="portfolio-image" style="background: linear-gradient(135deg, #FF6B9D 0%, #FFB366 100%);">
                         <span class="portfolio-tag">Immobilier</span>
                     </div>
@@ -282,35 +315,39 @@
                             <span>Next.js</span>
                             <span>Tailwind</span>
                         </div>
+                        <span class="portfolio-link">Voir le site →</span>
                     </div>
-                </div>
-                <div class="portfolio-card">
+                </a>
+                <a href="https://mehdiloumrhari.agency" target="_blank" rel="noopener" class="portfolio-card">
                     <div class="portfolio-image" style="background: linear-gradient(135deg, #6B7DFF 0%, #00D4AA 100%);">
                         <span class="portfolio-tag">Agence</span>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Digital Agency</h3>
+                        <h3>Loumrhari Agency</h3>
                         <p>Site vitrine pour agence digitale</p>
                         <div class="portfolio-tech">
                             <span>HTML</span>
                             <span>CSS</span>
                             <span>JavaScript</span>
                         </div>
+                        <span class="portfolio-link">Voir le site →</span>
                     </div>
-                </div>
-                <div class="portfolio-card">
+                </a>
+                <a href="https://myprestige.vercel.app" target="_blank" rel="noopener" class="portfolio-card">
                     <div class="portfolio-image" style="background: linear-gradient(135deg, #00D4AA 0%, #6B7DFF 100%);">
-                        <span class="portfolio-tag">E-commerce</span>
+                        <span class="portfolio-tag">Prestige</span>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Boutique Bio</h3>
-                        <p>Site e-commerce produits naturels</p>
+                        <h3>My Prestige</h3>
+                        <p>Site vitrine premium conciergerie</p>
                         <div class="portfolio-tech">
-                            <span>Shopify</span>
-                            <span>Liquid</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
                         </div>
+                        <span class="portfolio-link">Voir le site →</span>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -500,7 +537,9 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2024 Mehdi Loumrhari. Tous droits réservés.</p>
+                <p>© 2025 Mehdi Loumrhari. Tous droits réservés.</p>
+                <p class="footer-credit">Fait avec 💗 par <a href="https://mehdiloumrhari.agency" target="_blank"
+                        rel="noopener">Loumrhari Agency</a></p>
             </div>
         </div>
     </footer>
