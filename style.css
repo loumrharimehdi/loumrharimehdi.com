@@ -185,41 +185,29 @@ h3 {
     background: var(--white);
     color: var(--text);
     border: 2px solid var(--border);
+    transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
     border-color: var(--primary);
     color: var(--primary);
+    background: rgba(255, 107, 157, 0.05);
 }
 
-/* Premium WhatsApp Button */
+/* WhatsApp Button - Simple */
 .btn-whatsapp {
-    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    background: #25D366;
     color: var(--white);
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow:
-        0 4px 20px rgba(37, 211, 102, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: none;
+    transition: all 0.2s ease;
 }
 
 .btn-whatsapp:hover {
-    background: linear-gradient(135deg, #2EE370 0%, #1DA851 100%);
-    transform: translateY(-3px);
-    box-shadow:
-        0 12px 40px rgba(37, 211, 102, 0.4),
-        0 4px 12px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.25);
+    background: #1DA851;
 }
 
 .btn-whatsapp svg {
-    transition: transform 0.3s ease;
-}
-
-.btn-whatsapp:hover svg {
-    transform: scale(1.1) rotate(-5deg);
+    flex-shrink: 0;
 }
 
 /* Navbar WhatsApp Button - Standalone Styles */
