@@ -69,12 +69,17 @@
 }
 
 /* Fix white background visible at top in dark mode */
-[data-theme="dark"] body {
-    background: #0D0D1A;
+[data-theme="dark"] body,
+[data-theme="dark"] html {
+    background-color: #0D0D1A !important;
 }
 
-[data-theme="dark"] html {
-    background: #0D0D1A;
+[data-theme="dark"] .navbar {
+    background: transparent;
+}
+
+[data-theme="dark"] .nav-container {
+    background: transparent;
 }
 
 /* ============================================
@@ -470,7 +475,7 @@
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    scroll-padding-top: 140px;
+    scroll-padding-top: 100px;
 }
 
 /* Add scroll margin to all sections for better anchor positioning */
@@ -481,7 +486,7 @@ section[id],
 #pourquoi,
 #faq,
 #contact {
-    scroll-margin-top: 140px;
+    scroll-margin-top: 100px;
 }
 
 /* ============================================
@@ -2561,5 +2566,110 @@ a.portfolio-card:hover .portfolio-link {
 
     .footer-links {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   READING PROGRESS BAR
+   ============================================ */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    z-index: 10001;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+}
+
+/* ============================================
+   SOCIAL SHARE BUTTONS
+   ============================================ */
+.article-share {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.share-label {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.share-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.share-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.share-twitter:hover {
+    background: #1DA1F2;
+    border-color: #1DA1F2;
+    color: white;
+}
+
+.share-linkedin:hover {
+    background: #0A66C2;
+    border-color: #0A66C2;
+    color: white;
+}
+
+.share-whatsapp:hover {
+    background: #25D366;
+    border-color: #25D366;
+    color: white;
+}
+
+.share-copy:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.share-copy.copied {
+    background: #10B981;
+    border-color: #10B981;
+    color: white;
+}
+
+.share-copy.copied::after {
+    content: '✓';
+    position: absolute;
+}
+
+@media (max-width: 480px) {
+    .article-share {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

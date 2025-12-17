@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 130;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 90;
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -489,6 +489,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.disabled = false;
             }
         });
+    }
+
+    // ============================================
+    // READING PROGRESS BAR (Articles)
+    // ============================================
+    const readingProgress = document.getElementById('reading-progress');
+    if (readingProgress) {
+        const updateProgress = () => {
+            const article = document.querySelector('.article');
+            if (!article) return;
+
+            const articleRect = article.getBoundingClientRect();
+            const articleTop = article.offsetTop;
+            const articleHeight = article.offsetHeight;
+            const windowHeight = window.innerHeight;
+            const scrollTop = window.pageYOffset;
+
+            // Calculate progress based on article position
+            const start = articleTop - windowHeight;
+            const end = articleTop + articleHeight - windowHeight;
+            const scrolled = scrollTop - start;
+            const total = end - start;
+
+            let progress = (scrolled / total) * 100;
+            progress = Math.max(0, Math.min(100, progress));
+
+            readingProgress.style.width = progress + '%';
+        };
+
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress(); // Initial call
     }
 
 });
