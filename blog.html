@@ -29,6 +29,12 @@
 </head>
 
 <body>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" aria-label="Changer de thème">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+    </button>
+
     <!-- Decorative Hearts Background -->
     <div class="hearts-bg" aria-hidden="true">
         <div class="heart heart-1">💗</div>
@@ -45,12 +51,17 @@
                     <span class="logo-icon">💗</span>
                     <span class="logo-text">Mehdi <span class="accent">Loumrhari</span></span>
                 </a>
-                <div class="nav-links">
+                <div class="nav-links" id="nav-links">
                     <a href="index.html#services"><span>Services</span></a>
                     <a href="index.html#tarifs"><span>Tarifs</span></a>
                     <a href="index.html#portfolio"><span>Projets</span></a>
                     <a href="blog.html" class="active"><span>Blog</span></a>
                 </div>
+                <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
                 <a href="https://wa.me/212711152775" class="btn btn-whatsapp-nav" target="_blank"
                     rel="noopener">Contact</a>
             </div>
@@ -61,8 +72,8 @@
     <header class="blog-header">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">✍️ Blog</span>
-                <h1>Articles & <span class="accent">Conseils</span></h1>
+                <span class="section-badge pulse-badge">✍️ Blog</span>
+                <h1>Articles & <span class="accent gradient-text">Conseils</span></h1>
                 <p>Découvrez mes derniers articles sur le développement web et le digital</p>
             </div>
         </div>
@@ -73,7 +84,7 @@
         <div class="container">
             <div class="blog-grid">
                 <!-- Article 1 -->
-                <article class="blog-card">
+                <a href="articles/pourquoi-site-web-2025.html" class="blog-card">
                     <div class="blog-image" style="background: linear-gradient(135deg, #FF6B9D 0%, #FFB366 100%);">
                         <span class="blog-tag">Business</span>
                     </div>
@@ -85,14 +96,12 @@
                         <h2>Pourquoi avoir un site web en 2025 est essentiel</h2>
                         <p>Découvrez pourquoi une présence en ligne professionnelle est devenue indispensable pour tout
                             entrepreneur...</p>
-                        <a href="articles/pourquoi-site-web-2025.html" class="blog-link">
-                            Lire l'article →
-                        </a>
+                        <span class="blog-link">Lire l'article →</span>
                     </div>
-                </article>
+                </a>
 
                 <!-- Article 2 -->
-                <article class="blog-card">
+                <a href="articles/application-web-vs-site.html" class="blog-card">
                     <div class="blog-image" style="background: linear-gradient(135deg, #6B7DFF 0%, #00D4AA 100%);">
                         <span class="blog-tag">Tech</span>
                     </div>
@@ -104,14 +113,12 @@
                         <h2>Application web vs site vitrine : que choisir ?</h2>
                         <p>Comprenez les différences clés pour faire le bon choix selon vos besoins et votre budget...
                         </p>
-                        <a href="articles/application-web-vs-site.html" class="blog-link">
-                            Lire l'article →
-                        </a>
+                        <span class="blog-link">Lire l'article →</span>
                     </div>
-                </article>
+                </a>
 
                 <!-- Article 3 -->
-                <article class="blog-card">
+                <a href="articles/erreurs-creation-site.html" class="blog-card">
                     <div class="blog-image" style="background: linear-gradient(135deg, #00D4AA 0%, #6B7DFF 100%);">
                         <span class="blog-tag">Conseils</span>
                     </div>
@@ -122,11 +129,9 @@
                         </div>
                         <h2>5 erreurs à éviter lors de la création de votre site</h2>
                         <p>Évitez ces pièges courants qui peuvent nuire à l'efficacité de votre site web...</p>
-                        <a href="articles/erreurs-creation-site.html" class="blog-link">
-                            Lire l'article →
-                        </a>
+                        <span class="blog-link">Lire l'article →</span>
                     </div>
-                </article>
+                </a>
             </div>
         </div>
     </section>
@@ -175,6 +180,8 @@
             </div>
             <div class="footer-bottom">
                 <p>© 2025 Mehdi Loumrhari. Tous droits réservés.</p>
+                <p class="footer-credit">Fait avec 💗 par <a href="https://mehdiloumrhari.agency" target="_blank"
+                        rel="noopener">Loumrhari Agency</a></p>
             </div>
         </div>
     </footer>
