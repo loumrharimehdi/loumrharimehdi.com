@@ -30,10 +30,9 @@
     <link rel="canonical" href="https://loumrharimehdi.com/">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💗</text></svg>">
-    <link rel="apple-touch-icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💗</text></svg>">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/favicon-192.png">
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -44,7 +43,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <title>Mehdi Loumrhari - Création Site Web, App Web & Mobile</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.min.css">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -337,7 +336,7 @@
                 <div class="portfolio-grid">
                     <a href="https://simsar.ma" target="_blank" rel="noopener" class="portfolio-card">
                         <div class="portfolio-image">
-                            <img src="assets/portfolio-simsar.png" alt="Simsar.ma - Plateforme immobilière"
+                            <img src="assets/portfolio-simsar.webp" alt="Simsar.ma - Plateforme immobilière"
                                 loading="lazy">
                             <span class="portfolio-tag">Immobilier</span>
                         </div>
@@ -354,7 +353,7 @@
                     </a>
                     <a href="https://myprestige.vercel.app" target="_blank" rel="noopener" class="portfolio-card">
                         <div class="portfolio-image">
-                            <img src="assets/portfolio-myprestige.png" alt="My Prestige - Conciergerie de luxe"
+                            <img src="assets/portfolio-myprestige.webp" alt="My Prestige - Conciergerie de luxe"
                                 loading="lazy">
                             <span class="portfolio-tag">Prestige</span>
                         </div>
@@ -371,7 +370,7 @@
                     </a>
                     <a href="https://loumrharimehdi.com" target="_blank" rel="noopener" class="portfolio-card">
                         <div class="portfolio-image">
-                            <img src="assets/portfolio-loumrhari.png" alt="Loumrhari Agency - Site portfolio"
+                            <img src="assets/portfolio-loumrhari.webp" alt="Loumrhari Agency - Site portfolio"
                                 loading="lazy">
                             <span class="portfolio-tag">Portfolio</span>
                         </div>
@@ -595,10 +594,17 @@
         </svg>
     </a>
 
-    <script src="script.js"></script>
+    <script src="script.min.js"></script>
 
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(() => { });
+        }
+    </script>
 </body>
 
 </html>
