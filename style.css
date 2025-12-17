@@ -461,6 +461,7 @@
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    scroll-padding-top: 100px;
 }
 
 /* ============================================
@@ -2044,11 +2045,29 @@ a.portfolio-card:hover .portfolio-link {
     border-radius: var(--radius-lg);
     overflow: hidden;
     transition: var(--transition);
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .blog-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
+}
+
+/* Remove link styling from blog card text */
+.blog-card h2,
+.blog-card p {
+    text-decoration: none;
+    color: inherit;
+}
+
+.blog-card h2 {
+    color: var(--text);
+}
+
+.blog-card p {
+    color: var(--text-light);
 }
 
 .blog-image {
@@ -2150,16 +2169,25 @@ a.portfolio-card:hover .portfolio-link {
 }
 
 .article-back {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: var(--primary);
     text-decoration: none;
     font-weight: 500;
-    margin-bottom: 24px;
+    padding: 10px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    margin-bottom: 32px;
     transition: var(--transition);
 }
 
 .article-back:hover {
-    color: var(--primary-dark);
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+    transform: translateX(-5px);
 }
 
 .article-header h1 {
@@ -2370,12 +2398,14 @@ a.portfolio-card:hover .portfolio-link {
 
     .hero-cta {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        gap: 12px;
     }
 
     .hero-cta .btn {
         width: 100%;
-        max-width: 300px;
+        justify-content: center;
+        text-align: center;
     }
 
     .services-grid,
