@@ -75,11 +75,21 @@
 }
 
 [data-theme="dark"] .navbar {
-    background: transparent;
+    background: transparent !important;
 }
 
 [data-theme="dark"] .nav-container {
-    background: transparent;
+    background: transparent !important;
+}
+
+/* Fix for blog/article pages - ensure no white peek at very top */
+[data-theme="dark"] .article,
+[data-theme="dark"] .blog-page {
+    background-color: #0D0D1A;
+}
+
+[data-theme="dark"]::before {
+    background-color: #0D0D1A !important;
 }
 
 /* ============================================

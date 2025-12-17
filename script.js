@@ -237,24 +237,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================
-    // SMOOTH SCROLL
+    // SMOOTH SCROLL - Using native CSS scroll-behavior + scroll-margin-top
+    // No custom JS needed - browser handles it via CSS
     // ============================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const target = document.querySelector(targetId);
-            if (target) {
-                e.preventDefault();
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 90;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
 
     // ============================================
     // HERO ANIMATION ON LOAD
