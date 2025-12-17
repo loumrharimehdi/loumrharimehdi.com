@@ -461,7 +461,16 @@
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    scroll-padding-top: 100px;
+    scroll-padding-top: 120px;
+}
+
+/* Add scroll margin to all sections for better anchor positioning */
+section[id],
+#services,
+#tarifs,
+#portfolio,
+#contact {
+    scroll-margin-top: 120px;
 }
 
 /* ============================================
