@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 100;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 130;
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
