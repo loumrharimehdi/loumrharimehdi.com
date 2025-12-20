@@ -67,6 +67,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
 
+    // Function to update hearts based on theme
+    const updateHearts = (theme) => {
+        const heartElements = document.querySelectorAll('.heart, .loader-logo, .logo-icon');
+        const heartEmoji = theme === 'dark' ? '💔' : '💗';
+        heartElements.forEach(el => {
+            el.textContent = heartEmoji;
+        });
+        // Update footer credit heart
+        const footerCredit = document.querySelector('.footer-credit');
+        if (footerCredit) {
+            footerCredit.innerHTML = footerCredit.innerHTML.replace(theme === 'dark' ? '💗' : '💔', heartEmoji);
+        }
+    };
+
+    // Apply on load
+    updateHearts(savedTheme);
+
     const themeToggle = document.querySelector('.theme-toggle');
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
@@ -74,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const next = current === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
+            updateHearts(next);
         });
     }
 
@@ -95,23 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-        });
-    });
-
-    // ============================================
-    // MAGNETIC BUTTON EFFECT
-    // ============================================
-    const magneticBtns = document.querySelectorAll('.btn-whatsapp, .btn-whatsapp-nav');
-    magneticBtns.forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-        });
-
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = 'translate(0, 0)';
         });
     });
 
