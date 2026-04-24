@@ -67,23 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
 
-    // Function to update hearts based on theme
-    const updateHearts = (theme) => {
-        const heartElements = document.querySelectorAll('.heart, .loader-logo, .logo-icon');
-        const heartEmoji = theme === 'dark' ? '💔' : '💗';
-        heartElements.forEach(el => {
-            el.textContent = heartEmoji;
-        });
-        // Update footer credit heart
-        const footerCredit = document.querySelector('.footer-credit');
-        if (footerCredit) {
-            footerCredit.innerHTML = footerCredit.innerHTML.replace(theme === 'dark' ? '💗' : '💔', heartEmoji);
-        }
-    };
-
-    // Apply on load
-    updateHearts(savedTheme);
-
     const themeToggle = document.querySelector('.theme-toggle');
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
@@ -91,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const next = current === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
-            updateHearts(next);
         });
     }
 
@@ -243,23 +225,48 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
 
     // ============================================
-    // HERO ANIMATION ON LOAD
+    // HERO PARALLAX + MAGNETIC CTAS
     // ============================================
-    const heroElements = ['.hero-badges', '.hero-title', '.hero-subtitle', '.hero-cta'];
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+    const hero = document.querySelector('.hero');
 
-    heroElements.forEach((selector, index) => {
-        const el = document.querySelector(selector);
-        if (el) {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(40px)';
-            el.style.transition = 'opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+    if (hero && !prefersReducedMotion && hasFinePointer) {
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) - 0.5;
+            const y = ((e.clientY - rect.top) / rect.height) - 0.5;
 
-            setTimeout(() => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            }, 200 + (index * 150));
-        }
-    });
+            hero.style.setProperty('--hero-media-x', `${x * -14}px`);
+            hero.style.setProperty('--hero-media-y', `${y * -10}px`);
+            hero.style.setProperty('--hero-content-x', `${x * 8}px`);
+            hero.style.setProperty('--hero-content-y', `${y * 6}px`);
+        }, { passive: true });
+
+        hero.addEventListener('mouseleave', () => {
+            hero.style.setProperty('--hero-media-x', '0px');
+            hero.style.setProperty('--hero-media-y', '0px');
+            hero.style.setProperty('--hero-content-x', '0px');
+            hero.style.setProperty('--hero-content-y', '0px');
+        });
+    }
+
+    if (!prefersReducedMotion && hasFinePointer) {
+        document.querySelectorAll('.magnetic').forEach((item) => {
+            item.addEventListener('mousemove', (e) => {
+                const rect = item.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                item.style.setProperty('--magnetic-x', `${x * 0.16}px`);
+                item.style.setProperty('--magnetic-y', `${y * 0.2}px`);
+            });
+
+            item.addEventListener('mouseleave', () => {
+                item.style.setProperty('--magnetic-x', '0px');
+                item.style.setProperty('--magnetic-y', '0px');
+            });
+        });
+    }
 
     // ============================================
     // SCROLL REVEAL ANIMATIONS
@@ -386,21 +393,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
-
-    // ============================================
-    // PARALLAX HEARTS BACKGROUND
-    // ============================================
-    const hearts = document.querySelectorAll('.heart');
-
-    if (hearts.length > 0) {
-        window.addEventListener('scroll', () => {
-            const scrollY = window.pageYOffset;
-            hearts.forEach((heart, index) => {
-                const speed = 0.03 + (index * 0.015);
-                heart.style.transform = `translateY(${scrollY * speed}px)`;
-            });
-        }, { passive: true });
-    }
 
     // ============================================
     // PRICING CARD GLOW
