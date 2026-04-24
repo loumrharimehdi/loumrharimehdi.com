@@ -5,13 +5,11 @@
 const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
 
-document.documentElement.classList.add('js');
-
 window.addEventListener('load', () => {
     const loader = document.querySelector('.page-loader');
     if (!loader) return;
 
-    const delay = reducedMotionQuery.matches ? 0 : 450;
+    const delay = reducedMotionQuery.matches ? 0 : 180;
     window.setTimeout(() => {
         loader.classList.add('hidden');
     }, delay);
@@ -63,30 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const hero = document.querySelector('.hero');
-    if (hero) {
-        window.setTimeout(() => hero.classList.add('is-visible'), prefersReducedMotion ? 0 : 80);
-    }
 
     if (canUsePointerEffects) {
         const cursorLight = document.createElement('div');
         cursorLight.className = 'cursor-light';
         document.body.appendChild(cursorLight);
 
-        let lightTargetX = window.innerWidth / 2;
-        let lightTargetY = window.innerHeight / 2;
-        let lightX = lightTargetX;
-        let lightY = lightTargetY;
-
-        const renderCursorLight = () => {
-            lightX += (lightTargetX - lightX) * 0.16;
-            lightY += (lightTargetY - lightY) * 0.16;
-            cursorLight.style.transform = `translate3d(${lightX - 220}px, ${lightY - 220}px, 0)`;
-            window.requestAnimationFrame(renderCursorLight);
-        };
-
         document.addEventListener('pointermove', (event) => {
-            lightTargetX = event.clientX;
-            lightTargetY = event.clientY;
+            cursorLight.style.transform = `translate3d(${event.clientX - 220}px, ${event.clientY - 220}px, 0)`;
             cursorLight.classList.add('is-visible');
         }, { passive: true });
 
@@ -94,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
             cursorLight.classList.remove('is-visible');
         });
 
-        renderCursorLight();
     }
 
     if (canUsePointerEffects && hero) {
@@ -126,47 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
             targetY = 0;
             if (!parallaxFrame) parallaxFrame = window.requestAnimationFrame(renderHeroParallax);
         });
-    }
-
-    const revealChildSelector = [
-        '.section-header',
-        '.work-card',
-        '.service-card',
-        '.process-step',
-        '.proof-card',
-        '.pricing-card',
-        '.testimonial-card',
-        '.faq-item',
-        '.contact-form-container',
-        '.contact-card',
-        '.blog-card',
-        '.pricing-action'
-    ].join(',');
-
-    const revealSections = document.querySelectorAll('main > section');
-    revealSections.forEach((section) => {
-        section.classList.add('reveal-section');
-        section.querySelectorAll(revealChildSelector).forEach((child, index) => {
-            child.classList.add('reveal-child');
-            child.style.setProperty('--stagger-index', String(Math.min(index, 8)));
-        });
-    });
-
-    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-        revealSections.forEach((section) => section.classList.add('is-visible'));
-    } else {
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('is-visible');
-                revealObserver.unobserve(entry.target);
-            });
-        }, {
-            threshold: 0.16,
-            rootMargin: '0px 0px -120px 0px'
-        });
-
-        revealSections.forEach((section) => revealObserver.observe(section));
     }
 
     const counters = document.querySelectorAll('.counter');
@@ -330,10 +270,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 formMessage.className = 'form-message success';
                 formMessage.textContent = 'Message envoye avec succes. Je vous repondrai rapidement.';
                 contactForm.reset();
-            } catch (error) {
+            } catch {
                 formMessage.className = 'form-message error';
                 formMessage.textContent = 'Erreur lors de l\'envoi. Vous pouvez aussi me contacter sur WhatsApp.';
-                console.error('Form error:', error);
             } finally {
                 if (btnText) btnText.style.display = 'inline';
                 if (btnLoader) btnLoader.style.display = 'none';

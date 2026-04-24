@@ -1924,66 +1924,6 @@ summary:focus-visible {
     text-decoration: none;
 }
 
-.js .reveal-section {
-    opacity: 0;
-    filter: blur(12px);
-    transform: translate3d(0, 44px, 0);
-    transition:
-        opacity var(--transition-reveal),
-        filter var(--transition-reveal),
-        transform var(--transition-reveal);
-    will-change: opacity, filter, transform;
-}
-
-.js .reveal-section.is-visible {
-    opacity: 1;
-    filter: blur(0);
-    transform: translate3d(0, 0, 0);
-}
-
-.js .reveal-section .reveal-child {
-    opacity: 0;
-    filter: blur(10px);
-    transform: translate3d(0, 34px, 0);
-    transition:
-        opacity 760ms var(--ease-premium),
-        filter 760ms var(--ease-premium),
-        transform 760ms var(--ease-premium);
-    transition-delay: calc(100ms + (var(--stagger-index, 0) * 70ms));
-}
-
-.js .reveal-section.is-visible .reveal-child {
-    opacity: 1;
-    filter: blur(0);
-    transform: translate3d(0, 0, 0);
-}
-
-.js .reveal-ready {
-    opacity: 0;
-    filter: blur(12px);
-    transform: translate3d(0, 44px, 0);
-    transition:
-        opacity var(--transition-reveal),
-        filter var(--transition-reveal),
-        transform var(--transition-reveal);
-    transition-delay: calc(var(--stagger-index, 0) * 58ms);
-    will-change: opacity, filter, transform;
-}
-
-.js .reveal-ready.is-visible {
-    opacity: 1;
-    filter: blur(0);
-    transform: translate3d(0, 0, 0);
-}
-
-.js .reveal-section,
-.js .reveal-section .reveal-child,
-.js .reveal-ready {
-    opacity: 1;
-    filter: none;
-    transform: none;
-}
-
 /* ============================================
    Responsive
    ============================================ */
@@ -2124,6 +2064,18 @@ summary:focus-visible {
     padding-block: var(--section-space);
     position: relative;
     z-index: 1;
+}
+
+.selected-work,
+.capabilities,
+.process,
+.proof,
+.pricing,
+.testimonials,
+.faq,
+.contact {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
 }
 
 .section-header-split {
@@ -2706,14 +2658,4 @@ summary:focus-visible {
         transition-duration: 0.001ms !important;
     }
 
-    .js .hero .hero-badges .badge,
-    .js .hero .hero-title-line,
-    .js .hero .hero-subtitle,
-    .js .hero .hero-cta,
-    .js .reveal-section,
-    .js .reveal-section .reveal-child {
-        opacity: 1 !important;
-        filter: none !important;
-        transform: none !important;
-    }
 }
