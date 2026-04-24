@@ -1,11 +1,11 @@
 {
-    "name": "Mehdi Loumrhari - Création Web",
-    "short_name": "Mehdi Dev",
-    "description": "Création de sites web, applications web et mobiles",
+    "name": "Mehdi Loumrhari - Premium Web Design & Digital Systems",
+    "short_name": "Mehdi Agency",
+    "description": "Premium websites, web apps and digital systems for ambitious brands.",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#FFF5F8",
-    "theme_color": "#FF6B9D",
+    "background_color": "#080808",
+    "theme_color": "#080808",
     "orientation": "portrait-primary",
     "icons": [
         {

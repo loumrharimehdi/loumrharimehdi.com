@@ -1,5 +1,5 @@
-// Service Worker for loumrharimehdi.com
-const CACHE_NAME = 'loumrhari-v1';
+// Service Worker for mehdiloumrhari.agency
+const CACHE_NAME = 'loumrhari-static-v2';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -10,12 +10,12 @@ const ASSETS_TO_CACHE = [
     '/manifest.json',
     '/assets/favicon-192.png',
     '/assets/favicon-32.png',
+    '/assets/og-image.webp',
     '/assets/portfolio-simsar.webp',
     '/assets/portfolio-myprestige.webp',
     '/assets/portfolio-loumrhari.webp'
 ];
 
-// Install event - cache assets
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
@@ -24,56 +24,52 @@ self.addEventListener('install', (event) => {
     );
 });
 
-// Activate event - clean old caches
 self.addEventListener('activate', (event) => {
     event.waitUntil(
-        caches.keys().then((cacheNames) => {
-            return Promise.all(
+        caches.keys()
+            .then((cacheNames) => Promise.all(
                 cacheNames
                     .filter((name) => name !== CACHE_NAME)
                     .map((name) => caches.delete(name))
-            );
-        }).then(() => self.clients.claim())
+            ))
+            .then(() => self.clients.claim())
     );
 });
 
-// Fetch event - serve from cache, fallback to network
 self.addEventListener('fetch', (event) => {
-    // Skip non-GET requests
-    if (event.request.method !== 'GET') return;
+    const { request } = event;
 
-    // Skip external requests
-    if (!event.request.url.startsWith(self.location.origin)) return;
+    if (request.method !== 'GET') return;
+    if (!request.url.startsWith(self.location.origin)) return;
+    if (request.url.includes('/_vercel/')) return;
+
+    if (request.mode === 'navigate') {
+        event.respondWith(
+            fetch(request)
+                .then((response) => {
+                    const responseClone = response.clone();
+                    caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));
+                    return response;
+                })
+                .catch(() => caches.match(request).then((cached) => cached || caches.match('/404.html')))
+        );
+        return;
+    }
 
     event.respondWith(
-        caches.match(event.request)
-            .then((cachedResponse) => {
-                if (cachedResponse) {
-                    // Return cached version
-                    return cachedResponse;
-                }
-
-                // Fetch from network
-                return fetch(event.request).then((response) => {
-                    // Don't cache non-successful responses
-                    if (!response || response.status !== 200) {
-                        return response;
+        caches.match(request).then((cachedResponse) => {
+            const networkResponse = fetch(request)
+                .then((response) => {
+                    if (response && response.status === 200) {
+                        const responseClone = response.clone();
+                        caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));
                     }
 
-                    // Clone and cache the response
-                    const responseClone = response.clone();
-                    caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, responseClone);
-                    });
-
                     return response;
-                });
-            })
-            .catch(() => {
-                // Offline fallback for HTML pages
-                if (event.request.headers.get('accept').includes('text/html')) {
-                    return caches.match('/404.html');
-                }
-            })
+                })
+                .catch(() => cachedResponse);
+
+            return cachedResponse || networkResponse;
+        })
     );
 });

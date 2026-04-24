@@ -1,9 +1,9 @@
-# Robots.txt - loumrharimehdi.com
+# Robots.txt - mehdiloumrhari.agency
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://loumrharimehdi.com/sitemap.xml
+Sitemap: https://www.mehdiloumrhari.agency/sitemap.xml
 
 # Disallow admin/private
 Disallow: /.git/
