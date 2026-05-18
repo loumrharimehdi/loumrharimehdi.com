@@ -2,15 +2,21 @@ import { useEffect, useState } from 'react';
 
 const STORAGE_KEY = 'page_loaded';
 
+function hasLoadedBefore() {
+    if (typeof window === 'undefined') return false;
+
+    try {
+        return sessionStorage.getItem(STORAGE_KEY) === '1';
+    } catch {
+        return false;
+    }
+}
+
 export function usePageLoader(delay = 1500) {
-    const [hidden, setHidden] = useState(false);
+    const [hidden, setHidden] = useState(hasLoadedBefore);
 
     useEffect(() => {
-        try {
-            if (sessionStorage.getItem(STORAGE_KEY) === '1') {
-                return;
-            }
-        } catch {}
+        if (hidden) return;
 
         const timeout = window.setTimeout(() => {
             setHidden(true);
@@ -21,7 +27,7 @@ export function usePageLoader(delay = 1500) {
         }, delay);
 
         return () => window.clearTimeout(timeout);
-    }, [delay]);
+    }, [delay, hidden]);
 
     return hidden;
 }

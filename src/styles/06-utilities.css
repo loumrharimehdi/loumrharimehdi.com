@@ -210,7 +210,7 @@
 }
 
 .share-copy.copied::after {
-    content: 'âœ“';
+    content: '✓';
     position: absolute;
 }
 
