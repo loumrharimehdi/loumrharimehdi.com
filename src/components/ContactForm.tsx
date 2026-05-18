@@ -45,7 +45,10 @@ export function ContactForm() {
             <input type="hidden" name="from_name" value="Portfolio Contact" />
             <input type="checkbox" name="botcheck" hidden tabIndex={-1} autoComplete="off" />
 
-            <div id="form-message" className={`form-message ${state === 'success' ? 'success' : ''} ${state === 'error' ? 'error' : ''}`}>
+            <div
+                id="form-message"
+                className={`form-message ${state === 'success' ? 'success' : ''} ${state === 'error' ? 'error' : ''}`}
+            >
                 {state === 'success'
                     ? '✅ Message envoyé avec succès ! Je vous répondrai dans les 24h.'
                     : state === 'error'

@@ -10,9 +10,22 @@ export const site = {
     agencyUrl: 'https://mehdiloumrhari.agency'
 };
 
+export const legal = {
+    fullName: 'Mehdi Loumrhari',
+    status: 'Auto-entrepreneur (régime de l’auto-entrepreneur marocain)',
+    autoEntrepreneurId: '003889610000005',
+    city: 'Meknès',
+    country: 'Maroc',
+    email: 'loumrhari.mehdi@gmail.com',
+    phone: '+212 680 287 864',
+    hostingProvider: 'Vercel Inc.',
+    hostingAddress: '440 N Barranca Ave #4133, Covina, CA 91723, États-Unis',
+    hostingUrl: 'https://vercel.com'
+};
+
 export const services = [
     {
-        icon: '🌐',
+        icon: '/images/website.png',
         title: 'Site Web',
         description: 'Un site pour présenter votre activité. Beau, moderne et facile à utiliser.',
         features: ['Fonctionne sur téléphone', 'Visible sur Google', 'Rapide à charger']
@@ -67,14 +80,12 @@ export const reasons = [
     {
         icon: '⚡',
         title: 'Toujours joignable',
-        description:
-            'Je réponds rapidement par WhatsApp. Disponible 7j/7 pour vos questions, même après la livraison.'
+        description: 'Je réponds rapidement par WhatsApp. Disponible 7j/7 pour vos questions, même après la livraison.'
     },
     {
         icon: '🤝',
         title: 'Je vous forme',
-        description:
-            "Une fois votre site terminé, je vous montre comment le modifier vous-même. C'est simple, promis !"
+        description: "Une fois votre site terminé, je vous montre comment le modifier vous-même. C'est simple, promis !"
     }
 ];
 
@@ -90,6 +101,7 @@ export const pricingFeatures = [
 
 export const portfolio = [
     {
+        slug: 'simsar',
         href: 'https://simsar.ma',
         image: '/assets/portfolio-simsar.webp',
         width: 1024,
@@ -101,6 +113,7 @@ export const portfolio = [
         tech: ['Site web', 'Application', 'Moderne']
     },
     {
+        slug: 'myprestige',
         href: 'https://myprestige.vercel.app',
         image: '/assets/portfolio-myprestige.webp',
         width: 1024,
@@ -112,6 +125,7 @@ export const portfolio = [
         tech: ['Site vitrine', 'Élégant', 'Moderne']
     },
     {
+        slug: 'loumrhari-agency',
         href: 'https://loumrharimehdi.com',
         image: '/assets/portfolio-loumrhari.webp',
         width: 1024,
@@ -126,22 +140,19 @@ export const portfolio = [
 
 export const testimonials = [
     {
-        quote:
-            "Mehdi a complètement transformé ma présence en ligne. Mon site génère maintenant 3x plus de demandes de devis qu'avant. Un vrai professionnel !",
+        quote: "Mehdi a complètement transformé ma présence en ligne. Mon site génère maintenant 3x plus de demandes de devis qu'avant. Un vrai professionnel !",
         initials: 'SM',
         name: 'Sophie Martin',
         role: 'Fondatrice, Beauté Bio'
     },
     {
-        quote:
-            "Réactif, professionnel et créatif. J'ai reçu mon site en 3 jours et il est exactement comme je l'imaginais. Je recommande à 100% !",
+        quote: "Réactif, professionnel et créatif. J'ai reçu mon site en 3 jours et il est exactement comme je l'imaginais. Je recommande à 100% !",
         initials: 'KB',
         name: 'Karim Benali',
         role: 'Coach sportif'
     },
     {
-        quote:
-            'Le meilleur investissement pour mon business. Design moderne, rapide à charger et mes clients adorent. Merci Mehdi !',
+        quote: 'Le meilleur investissement pour mon business. Design moderne, rapide à charger et mes clients adorent. Merci Mehdi !',
         initials: 'LA',
         name: 'Leila Amrani',
         role: 'Consultante RH'
@@ -151,32 +162,63 @@ export const testimonials = [
 export const faqs = [
     {
         question: 'Combien de temps pour créer mon site ?',
-        answer:
-            'Comptez 1 à 2 semaines. Un site simple peut être prêt en 1 semaine. Un projet plus complet prendra environ 2 semaines.'
+        answer: 'Comptez 1 à 2 semaines. Un site simple peut être prêt en 1 semaine. Un projet plus complet prendra environ 2 semaines.'
     },
     {
         question: "Je ne suis pas doué en informatique, c'est grave ?",
-        answer:
-            "Pas du tout ! Je m'occupe de tout. Et après, je vous montre comment changer vos textes et photos vous-même, c'est très simple. Je reste disponible sur WhatsApp si vous avez des questions."
+        answer: "Pas du tout ! Je m'occupe de tout. Et après, je vous montre comment changer vos textes et photos vous-même, c'est très simple. Je reste disponible sur WhatsApp si vous avez des questions."
     },
     {
         question: "C'est vraiment gratuit au début ?",
-        answer:
-            "Oui ! Je crée d'abord un aperçu de votre futur site. Si ça vous plaît, on continue. Sinon, vous ne payez rien du tout."
+        answer: "Oui ! Je crée d'abord un aperçu de votre futur site. Si ça vous plaît, on continue. Sinon, vous ne payez rien du tout."
     },
     {
         question: 'Comment ça se passe pour le prix ?',
-        answer:
-            "Je regarde votre projet et je vous fais un devis gratuit. Le prix dépend de ce dont vous avez besoin : un site simple ou plus complet. Pas de mauvaise surprise !"
+        answer: 'Je regarde votre projet et je vous fais un devis gratuit. Le prix dépend de ce dont vous avez besoin : un site simple ou plus complet. Pas de mauvaise surprise !'
     },
     {
         question: 'Comment je vous paye ?',
-        answer:
-            "C'est simple : l'aperçu est gratuit. Si vous le validez, vous payez la moitié pour commencer. Le reste à la fin, quand vous êtes satisfait du résultat."
+        answer: "C'est simple : l'aperçu est gratuit. Si vous le validez, vous payez la moitié pour commencer. Le reste à la fin, quand vous êtes satisfait du résultat."
     }
 ];
 
 export const blogPosts = [
+    {
+        slug: 'wix-wordpress-vs-sur-mesure',
+        tag: 'Comparatif',
+        gradient: 'linear-gradient(135deg, #6B7DFF 0%, #FF6B9D 100%)',
+        date: '3 Février 2026',
+        readTime: '6 min',
+        title: 'Wix, WordPress ou site sur mesure : que choisir vraiment ?',
+        excerpt:
+            'Comparatif honnête entre Wix, WordPress et un site développé sur mesure. Avantages, limites, coûts réels...',
+        description:
+            'Comparatif honnête entre Wix, WordPress et un site développé sur mesure. Avantages, limites, coûts réels.'
+    },
+    {
+        slug: 'referencement-local-google-maroc',
+        tag: 'SEO',
+        gradient: 'linear-gradient(135deg, #00D4AA 0%, #FFB366 100%)',
+        date: '20 Janvier 2026',
+        readTime: '7 min',
+        title: 'Référencement local : apparaître sur Google Maps',
+        excerpt:
+            'Le guide pratique pour qu’une entreprise marocaine apparaisse sur Google Maps et les recherches locales...',
+        description:
+            'Le guide pratique pour qu’une entreprise marocaine apparaisse sur Google Maps et les recherches locales en 2026.'
+    },
+    {
+        slug: 'prix-site-web-maroc-2026',
+        tag: 'Tarifs',
+        gradient: 'linear-gradient(135deg, #FFB366 0%, #FF6B9D 100%)',
+        date: '5 Janvier 2026',
+        readTime: '6 min',
+        title: 'Combien coûte un site web au Maroc en 2026 ?',
+        excerpt:
+            'Tarifs réels d’un site web au Maroc en 2026 : fourchettes par type de projet et ce qui fait vraiment varier le prix...',
+        description:
+            'Tarifs réels d’un site web au Maroc en 2026 : fourchettes par type de projet et ce qui fait vraiment varier le prix.'
+    },
     {
         slug: 'pourquoi-site-web-2025',
         tag: 'Business',
@@ -208,7 +250,6 @@ export const blogPosts = [
         readTime: '4 min',
         title: '5 erreurs à éviter lors de la création de votre site',
         excerpt: "Évitez ces pièges courants qui peuvent nuire à l'efficacité de votre site web...",
-        description:
-            'Découvrez les 5 erreurs les plus courantes à éviter lors de la création de votre site web.'
+        description: 'Découvrez les 5 erreurs les plus courantes à éviter lors de la création de votre site web.'
     }
 ];

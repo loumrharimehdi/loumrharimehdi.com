@@ -1,11 +1,11 @@
 # CSS architecture
 
-`style.css` and `style.min.css` are generated outputs.
+The Next.js app imports these files through `app/globals.css`.
 
 Edit the ordered source files in this directory, then run:
 
 ```bash
-npm.cmd run build:css
+npm.cmd run build
 ```
 
 Order matters:

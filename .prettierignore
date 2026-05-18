@@ -1,0 +1,11 @@
+.next
+node_modules
+out
+output
+package-lock.json
+next-env.d.ts
+.claude
+test-results
+playwright-report
+.lighthouseci
+

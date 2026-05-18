@@ -3,7 +3,6 @@
    Respects user preference to minimize animations
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
-
     html * {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;

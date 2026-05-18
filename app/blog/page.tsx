@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import type { CSSProperties } from 'react';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { Footer } from '@/components/Footer';
 import { HeartsBackground } from '@/components/HeartsBackground';
+import { JsonLd } from '@/components/JsonLd';
 import { Navigation } from '@/components/Navigation';
-import { SectionHeader } from '@/components/SectionHeader';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 import { blogPosts, site } from '@/data/site';
@@ -18,8 +19,28 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+    const breadcrumbData = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Accueil',
+                item: site.url
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Blog',
+                item: `${site.url}/blog`
+            }
+        ]
+    };
+
     return (
         <>
+            <JsonLd data={breadcrumbData} />
             <ThemeToggle />
             <HeartsBackground />
             <Navigation active="blog" />
@@ -40,8 +61,11 @@ export default function BlogPage() {
                 <div className="container">
                     <div className="blog-grid">
                         {blogPosts.map((post) => (
-                            <Link key={post.slug} href={`/articles/${post.slug}`} className="blog-card">
-                                <div className="blog-image" style={{ background: post.gradient }}>
+                            <Link key={post.slug} href={`/articles/${post.slug}`} className="blog-card tilt-card">
+                                <div
+                                    className="blog-image"
+                                    style={{ '--blog-gradient': post.gradient } as CSSProperties}
+                                >
                                     <span className="blog-tag">{post.tag}</span>
                                 </div>
                                 <div className="blog-content">
@@ -66,7 +90,12 @@ export default function BlogPage() {
                             Prêt à lancer <span className="accent">votre projet</span> ?
                         </h2>
                         <p>Discutons de vos besoins et créons ensemble votre présence digitale</p>
-                        <a href={site.whatsapp} className="btn btn-whatsapp btn-large" target="_blank" rel="noopener">
+                        <a
+                            href={site.whatsapp}
+                            className="btn btn-whatsapp btn-large btn-magnetic"
+                            target="_blank"
+                            rel="noopener"
+                        >
                             <WhatsAppIcon />
                             Discuter sur WhatsApp
                         </a>

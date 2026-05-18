@@ -37,10 +37,15 @@ export function Footer({ homeCopy = false }: FooterProps) {
                             </a>
                             <a href={`mailto:${site.email}`}>Email</a>
                         </div>
+                        <div className="footer-col">
+                            <h4>Légal</h4>
+                            <Link href="/mentions-legales">Mentions légales</Link>
+                            <Link href="/cgv">CGV</Link>
+                        </div>
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    <p>© 2025 Mehdi Loumrhari. Tous droits réservés.</p>
+                    <p>© 2026 Mehdi Loumrhari. Tous droits réservés.</p>
                     <p className="footer-credit">
                         Fait avec 💗 par{' '}
                         <a href={site.agencyUrl} target="_blank" rel="noopener">

@@ -78,7 +78,11 @@
 }
 
 body {
-    font-family: var(--font-inter, 'Inter'), -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family:
+        var(--font-inter, 'Inter'),
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
@@ -132,6 +136,7 @@ h3 {
 }
 
 .heart {
+    --heart-scroll: 0px;
     position: absolute;
     font-size: 120px;
     opacity: 0.08;
@@ -165,14 +170,13 @@ h3 {
 }
 
 @keyframes float {
-
     0%,
     100% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(var(--heart-scroll)) rotate(0deg);
     }
 
     50% {
-        transform: translateY(-30px) rotate(5deg);
+        transform: translateY(calc(var(--heart-scroll) - 30px)) rotate(5deg);
     }
 }
 
@@ -220,14 +224,14 @@ h3 {
 
 /* WhatsApp Buttons - Simple Unified Design */
 .btn-whatsapp {
-    background: #25D366;
-    color: var(--white) !important;
+    background: #25d366;
+    color: #ffffff;
     border: none;
     transition: all 0.3s ease;
 }
 
 .btn-whatsapp:hover {
-    background: #1DA851;
+    background: #1da851;
     transform: translateY(-2px);
 }
 
@@ -243,8 +247,8 @@ h3 {
     padding: 12px 24px;
     font-size: 0.9rem;
     font-weight: 600;
-    background: #25D366;
-    color: white !important;
+    background: #25d366;
+    color: #ffffff;
     border-radius: 50px;
     border: none;
     text-decoration: none;
@@ -253,7 +257,7 @@ h3 {
 }
 
 .btn-whatsapp-nav:hover {
-    background: #1DA851;
+    background: #1da851;
     transform: translateY(-2px);
 }
 
@@ -300,7 +304,6 @@ h3 {
 }
 
 @keyframes badgePulse {
-
     0%,
     100% {
         box-shadow: 0 0 0 0 rgba(255, 107, 157, 0.3);
@@ -345,7 +348,6 @@ h3 {
 }
 
 @keyframes pulseGlow {
-
     0%,
     100% {
         box-shadow: 0 0 0 0 rgba(255, 107, 157, 0.4);
@@ -444,7 +446,7 @@ h3 {
 }
 
 /* Dark mode navbar scrolled fix */
-[data-theme="dark"] .navbar.scrolled .nav-pill {
+[data-theme='dark'] .navbar.scrolled .nav-pill {
     background: rgba(30, 30, 50, 0.95);
     box-shadow:
         0 8px 40px rgba(255, 107, 157, 0.15),
@@ -474,7 +476,6 @@ h3 {
 }
 
 @keyframes heartbeat {
-
     0%,
     100% {
         transform: scale(1);
@@ -542,7 +543,7 @@ h3 {
     font-size: 0.9rem;
     font-weight: 600;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white !important;
+    color: #ffffff;
     border-radius: 50px;
     border: none;
     text-decoration: none;
@@ -569,7 +570,7 @@ h3 {
         0 8px 28px rgba(255, 107, 157, 0.45),
         0 4px 12px rgba(255, 107, 157, 0.25),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    color: white !important;
+    color: #ffffff;
 }
 
 .btn-nav:hover::before {
@@ -586,4 +587,3 @@ h3 {
         will-change: transform;
     }
 }
-

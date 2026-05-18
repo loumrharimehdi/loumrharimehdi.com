@@ -1,0 +1,29 @@
+{
+    "ci": {
+        "collect": {
+            "startServerCommand": "npm run start -- -p 3001",
+            "url": [
+                "http://localhost:3001/",
+                "http://localhost:3001/blog",
+                "http://localhost:3001/articles/prix-site-web-maroc-2026",
+                "http://localhost:3001/projets/simsar"
+            ],
+            "numberOfRuns": 1,
+            "settings": {
+                "preset": "desktop",
+                "skipAudits": ["uses-http2"]
+            }
+        },
+        "assert": {
+            "assertions": {
+                "categories:performance": ["warn", { "minScore": 0.9 }],
+                "categories:accessibility": ["error", { "minScore": 0.9 }],
+                "categories:best-practices": ["warn", { "minScore": 0.9 }],
+                "categories:seo": ["error", { "minScore": 0.9 }]
+            }
+        },
+        "upload": {
+            "target": "temporary-public-storage"
+        }
+    }
+}

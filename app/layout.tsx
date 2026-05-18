@@ -1,8 +1,14 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
-import { ClientEffects } from '@/components/ClientEffects';
+import { CustomCursor } from '@/components/CustomCursor';
+import { LoaderScript } from '@/components/LoaderScript';
+import { MeshBackground } from '@/components/MeshBackground';
+import { PageEffects } from '@/components/PageEffects';
+import { ServiceWorkerRegistrar } from '@/components/ServiceWorkerRegistrar';
 import { SvgSprite } from '@/components/SvgSprite';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import { ThemeScript } from '@/components/ThemeScript';
 import { site } from '@/data/site';
 import './globals.css';
 
@@ -82,11 +88,18 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
-        <html lang="fr" className={inter.variable}>
+        <html lang="fr" className={inter.variable} suppressHydrationWarning>
             <body>
-                <SvgSprite />
-                {children}
-                <ClientEffects />
+                <ThemeScript />
+                <LoaderScript />
+                <ThemeProvider>
+                    <SvgSprite />
+                    <MeshBackground />
+                    {children}
+                    <CustomCursor />
+                    <PageEffects />
+                    <ServiceWorkerRegistrar />
+                </ThemeProvider>
             </body>
         </html>
     );

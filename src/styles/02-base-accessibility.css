@@ -10,6 +10,20 @@
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 /* ============================================
@@ -30,7 +44,7 @@ html {
     transition: top 0.3s ease;
 }
 
-.skip-link:focus {
+.skip-link:focus-visible {
     top: 16px;
     outline: 3px solid var(--primary-dark);
     outline-offset: 2px;
@@ -57,6 +71,7 @@ summary:focus-visible,
 .blog-card:focus-visible,
 .share-btn:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--primary);
+    box-shadow:
+        0 0 0 3px var(--bg),
+        0 0 0 6px var(--primary);
 }
-

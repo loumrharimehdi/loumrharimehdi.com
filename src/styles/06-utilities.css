@@ -7,7 +7,7 @@
     right: 28px;
     width: 60px;
     height: 60px;
-    background: #25D366;
+    background: #25d366;
     color: var(--white);
     border-radius: 50%;
     display: flex;
@@ -20,7 +20,7 @@
 }
 
 .whatsapp-float:hover {
-    background: #1DA851;
+    background: #1da851;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
 }
@@ -63,9 +63,9 @@
     }
 
     .btn-whatsapp-nav {
-        padding: 10px 16px !important;
-        font-size: 0.8rem !important;
-        border-radius: 50px !important;
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        border-radius: 50px;
         white-space: nowrap;
     }
 
@@ -90,29 +90,12 @@
         text-align: center;
     }
 
-    .services-grid,
-    .portfolio-grid,
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-
-    .process-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
     .pricing-card {
         padding: 40px 24px;
     }
 
     .pricing-price .price {
         font-size: 3rem;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 32px;
     }
 
     .footer-bottom {
@@ -127,17 +110,9 @@
 }
 
 @media (max-width: 480px) {
-    .process-grid {
-        grid-template-columns: 1fr;
-    }
-
     .hero-badges {
         flex-direction: column;
         align-items: center;
-    }
-
-    .footer-links {
-        grid-template-columns: 1fr;
     }
 }
 
@@ -148,7 +123,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 0%;
+    width: var(--reading-progress, 0%);
     height: 4px;
     background: linear-gradient(90deg, var(--primary), var(--primary-light));
     z-index: 10001;
@@ -205,20 +180,20 @@
 }
 
 .share-twitter:hover {
-    background: #1DA1F2;
-    border-color: #1DA1F2;
+    background: #1da1f2;
+    border-color: #1da1f2;
     color: white;
 }
 
 .share-linkedin:hover {
-    background: #0A66C2;
-    border-color: #0A66C2;
+    background: #0a66c2;
+    border-color: #0a66c2;
     color: white;
 }
 
 .share-whatsapp:hover {
-    background: #25D366;
-    border-color: #25D366;
+    background: #25d366;
+    border-color: #25d366;
     color: white;
 }
 
@@ -229,8 +204,8 @@
 }
 
 .share-copy.copied {
-    background: #10B981;
-    border-color: #10B981;
+    background: #10b981;
+    border-color: #10b981;
     color: white;
 }
 
@@ -266,7 +241,7 @@
 .error-code {
     font-size: clamp(8rem, 20vw, 12rem);
     font-weight: 800;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, #FFB366 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, #ffb366 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -353,7 +328,6 @@
 }
 
 @keyframes bounce {
-
     0%,
     100% {
         transform: translateY(0);
@@ -373,4 +347,3 @@
         width: 100%;
     }
 }
-

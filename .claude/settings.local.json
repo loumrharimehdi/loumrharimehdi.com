@@ -3,7 +3,29 @@
     "allow": [
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(curl -s -o /dev/null -w \"sitemap: %{http_code}\\\\n\" http://localhost:3000/sitemap.xml)",
+      "Bash(curl -s -o /dev/null -w \"robots: %{http_code}\\\\n\" http://localhost:3000/robots.txt)",
+      "Bash(curl -s -o /dev/null -w \"manifest: %{http_code}\\\\n\" http://localhost:3000/manifest.webmanifest)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3000/articles/pourquoi-site-web-2025)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"home: %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"mentions-legales: %{http_code}\\\\n\" http://localhost:3000/mentions-legales)",
+      "Bash(curl -s -o /dev/null -w \"cgv: %{http_code}\\\\n\" http://localhost:3000/cgv)",
+      "Bash(curl -s -o /dev/null -w \"projets/simsar: %{http_code}\\\\n\" http://localhost:3000/projets/simsar)",
+      "Bash(curl -s -o /dev/null -w \"projets/myprestige: %{http_code}\\\\n\" http://localhost:3000/projets/myprestige)",
+      "Bash(curl -s http://localhost:3000/sitemap.xml)",
+      "Bash(curl -s http://localhost:3000/mentions-legales)",
+      "Bash(curl -s http://localhost:3000/projets/simsar)",
+      "PowerShell(Stop-Process -Id 8080 -Force -ErrorAction SilentlyContinue; Start-Sleep -Seconds 1; try { $r = Invoke-WebRequest -Uri http://localhost:3000/ -UseBasicParsing -TimeoutSec 2 -ErrorAction Stop; \"still up: $\\($r.StatusCode\\)\" } catch { \"port 3000: down\" })",
+      "Bash(curl -s -o /dev/null --max-time 2 http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"article: %{http_code}\\\\n\" http://localhost:3000/articles/prix-site-web-maroc-2026)",
+      "Bash(curl -s -o /dev/null -w \"projet: %{http_code}\\\\n\" http://localhost:3000/projets/simsar)",
+      "Bash(curl -s -o /dev/null -w \"mentions: %{http_code}\\\\n\" http://localhost:3000/mentions-legales)",
+      "PowerShell($proc = Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | Select-Object -First 1; if \\($proc\\) { Stop-Process -Id $proc.OwningProcess -Force -ErrorAction SilentlyContinue; \"killed PID $\\($proc.OwningProcess\\)\" } else { \"no process on 3000\" })",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue; \"killed PID $\\($_.OwningProcess\\)\" }; Start-Sleep -Seconds 1; try { Invoke-WebRequest -Uri http://localhost:3000/ -UseBasicParsing -TimeoutSec 2 -ErrorAction Stop | Out-Null; \"still up\" } catch { \"port 3000: free\" })"
     ]
   }
 }

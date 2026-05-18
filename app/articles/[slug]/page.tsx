@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { Footer } from '@/components/Footer';
 import { HeartsBackground } from '@/components/HeartsBackground';
+import { JsonLd } from '@/components/JsonLd';
 import { Navigation } from '@/components/Navigation';
 import { ShareButtons } from '@/components/ShareButtons';
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -52,8 +53,56 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         notFound();
     }
 
+    const articleUrl = `${site.url}/articles/${article.slug}`;
+    const structuredData = [
+        {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Accueil',
+                    item: site.url
+                },
+                {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'Blog',
+                    item: `${site.url}/blog`
+                },
+                {
+                    '@type': 'ListItem',
+                    position: 3,
+                    name: article.plainTitle,
+                    item: articleUrl
+                }
+            ]
+        },
+        {
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: article.plainTitle,
+            description: article.description,
+            url: articleUrl,
+            author: {
+                '@type': 'Person',
+                name: site.name
+            },
+            publisher: {
+                '@type': 'Organization',
+                name: site.name,
+                logo: {
+                    '@type': 'ImageObject',
+                    url: `${site.url}/assets/favicon-512.png`
+                }
+            }
+        }
+    ];
+
     return (
         <>
+            <JsonLd data={structuredData} />
             <ThemeToggle />
             <HeartsBackground count={2} />
             <Navigation active="blog" />
@@ -61,10 +110,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <article className="article">
                 <div className="container">
                     <div className="article-header">
-                        <Link href="/blog" className="article-back">
-                            ← Retour au blog
-                        </Link>
-                        <span className="section-badge">{article.tag}</span>
+                        <div className="article-header-top">
+                            <Link href="/blog" className="article-back">
+                                ← Retour au blog
+                            </Link>
+                            <span className="section-badge">{article.tag}</span>
+                        </div>
                         <h1>{article.title}</h1>
                         <div className="article-meta">
                             <span>📅 {article.date}</span>
@@ -89,8 +140,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     </div>
                 </div>
             </article>
-
-            <div className="reading-progress" id="reading-progress" />
 
             <Footer />
             <FloatingWhatsApp />

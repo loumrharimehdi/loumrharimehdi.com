@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ContactForm } from '@/components/ContactForm';
+import { CountUp } from '@/components/CountUp';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { Footer } from '@/components/Footer';
 import { HeartsBackground } from '@/components/HeartsBackground';
+import { JsonLd } from '@/components/JsonLd';
 import { Navigation } from '@/components/Navigation';
 import { PageLoader } from '@/components/PageLoader';
 import { SectionHeader } from '@/components/SectionHeader';
@@ -12,23 +14,37 @@ import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 import { faqs, portfolio, pricingFeatures, processSteps, reasons, services, site, testimonials } from '@/data/site';
 
 export default function HomePage() {
-    const structuredData = {
-        '@context': 'https://schema.org',
-        '@type': 'ProfessionalService',
-        name: 'Mehdi Loumrhari - Développeur Web',
-        description: 'Création de sites web, applications web et mobiles sur mesure',
-        url: site.url,
-        telephone: '+212680287864',
-        email: site.email,
-        priceRange: '€€',
-        areaServed: ['Maroc', 'France', 'International'],
-        serviceType: ['Création de site web', 'Application web', 'Application mobile'],
-        sameAs: [site.agencyUrl]
-    };
+    const structuredData = [
+        {
+            '@context': 'https://schema.org',
+            '@type': 'ProfessionalService',
+            name: 'Mehdi Loumrhari - Développeur Web',
+            description: 'Création de sites web, applications web et mobiles sur mesure',
+            url: site.url,
+            telephone: '+212680287864',
+            email: site.email,
+            priceRange: '€€',
+            areaServed: ['Maroc', 'France', 'International'],
+            serviceType: ['Création de site web', 'Application web', 'Application mobile'],
+            sameAs: [site.agencyUrl]
+        },
+        {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: faq.answer
+                }
+            }))
+        }
+    ];
 
     return (
         <>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+            <JsonLd data={structuredData} />
             <PageLoader />
             <a href="#main-content" className="skip-link">
                 Aller au contenu principal
@@ -43,7 +59,7 @@ export default function HomePage() {
                         <div className="hero-badges">
                             <span className="badge pulse-badge">💎 Qualité & Sur-Mesure</span>
                             <span className="badge pulse-badge">
-                                🏆 +<span className="counter" data-target="50">50</span> Clients Satisfaits
+                                🏆 +<CountUp target={50} /> Clients Satisfaits
                             </span>
                         </div>
                         <h1 className="hero-title">
@@ -57,7 +73,12 @@ export default function HomePage() {
                             Vous me dites ce que vous voulez, je m&apos;occupe de tout.
                         </p>
                         <div className="hero-cta">
-                            <a href={site.whatsapp} className="btn btn-whatsapp btn-large" target="_blank" rel="noopener">
+                            <a
+                                href={site.whatsapp}
+                                className="btn btn-whatsapp btn-large btn-magnetic"
+                                target="_blank"
+                                rel="noopener"
+                            >
                                 <WhatsAppIcon />
                                 Discuter de mon projet
                             </a>
@@ -80,19 +101,37 @@ export default function HomePage() {
                             subtitle="Des solutions simples adaptées à vos besoins"
                         />
                         <div className="services-grid">
-                            {services.map((service) => (
-                                <div key={service.title} className={`service-card ${service.featured ? 'featured' : ''}`}>
-                                    {service.featured ? <span className="card-badge">Populaire</span> : null}
-                                    <div className="service-icon">{service.icon}</div>
-                                    <h3>{service.title}</h3>
-                                    <p>{service.description}</p>
-                                    <ul className="service-features">
-                                        {service.features.map((feature) => (
-                                            <li key={feature}>✓ {feature}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            ))}
+                            {services.map((service) => {
+                                const isImage = service.icon.startsWith('/');
+                                return (
+                                    <div
+                                        key={service.title}
+                                        className={`service-card tilt-card${service.featured ? ' featured' : ''}`}
+                                    >
+                                        {service.featured ? <span className="card-badge">Populaire</span> : null}
+                                        <div className={`service-icon${isImage ? ' service-icon-image' : ''}`}>
+                                            {isImage ? (
+                                                <Image
+                                                    src={service.icon}
+                                                    alt={service.title}
+                                                    width={80}
+                                                    height={80}
+                                                    sizes="80px"
+                                                />
+                                            ) : (
+                                                service.icon
+                                            )}
+                                        </div>
+                                        <h3>{service.title}</h3>
+                                        <p>{service.description}</p>
+                                        <ul className="service-features">
+                                            {service.features.map((feature) => (
+                                                <li key={feature}>✓ {feature}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                 </section>
@@ -133,7 +172,7 @@ export default function HomePage() {
                         />
                         <div className="why-grid">
                             {reasons.map((reason) => (
-                                <div key={reason.title} className="why-card">
+                                <div key={reason.title} className="why-card tilt-card">
                                     <div className="why-icon">{reason.icon}</div>
                                     <h3>{reason.title}</h3>
                                     <p>{reason.description}</p>
@@ -171,11 +210,18 @@ export default function HomePage() {
                                     </li>
                                 ))}
                             </ul>
-                            <a href={site.whatsapp} className="btn btn-whatsapp btn-full" target="_blank" rel="noopener">
+                            <a
+                                href={site.whatsapp}
+                                className="btn btn-whatsapp btn-full btn-magnetic"
+                                target="_blank"
+                                rel="noopener"
+                            >
                                 <WhatsAppIcon size={20} />
                                 Démarrer mon projet →
                             </a>
-                            <p className="pricing-guarantee">Design offert. Acompte uniquement si vous validez le design.</p>
+                            <p className="pricing-guarantee">
+                                Design offert. Acompte uniquement si vous validez le design.
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -193,7 +239,11 @@ export default function HomePage() {
                         />
                         <div className="portfolio-grid">
                             {portfolio.map((project) => (
-                                <a key={project.title} href={project.href} target="_blank" rel="noopener" className="portfolio-card">
+                                <Link
+                                    key={project.title}
+                                    href={`/projets/${project.slug}`}
+                                    className="portfolio-card tilt-card"
+                                >
                                     <div className="portfolio-image">
                                         <Image
                                             src={project.image}
@@ -212,9 +262,9 @@ export default function HomePage() {
                                                 <span key={tech}>{tech}</span>
                                             ))}
                                         </div>
-                                        <span className="portfolio-link">Voir le site →</span>
+                                        <span className="portfolio-link">Voir le cas d&apos;étude →</span>
                                     </div>
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -286,7 +336,7 @@ export default function HomePage() {
                                 <ContactForm />
                             </div>
                             <div className="contact-info">
-                                <div className="contact-card">
+                                <div className="contact-card tilt-card">
                                     <div className="contact-icon">📱</div>
                                     <h3>WhatsApp</h3>
                                     <p>Réponse en moins de 2h</p>
@@ -294,7 +344,7 @@ export default function HomePage() {
                                         {site.phone}
                                     </a>
                                 </div>
-                                <div className="contact-card">
+                                <div className="contact-card tilt-card">
                                     <div className="contact-icon">✉️</div>
                                     <h3>Email</h3>
                                     <p>Pour les demandes détaillées</p>

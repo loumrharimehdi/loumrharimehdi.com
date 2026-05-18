@@ -1,8 +1,8 @@
-@import "../src/styles/00-tokens.css";
-@import "../src/styles/01-effects.css";
-@import "../src/styles/02-base-accessibility.css";
-@import "../src/styles/03-navigation-ui.css";
-@import "../src/styles/04-landing-sections.css";
-@import "../src/styles/05-content-pages.css";
-@import "../src/styles/06-utilities.css";
-@import "../src/styles/07-responsive-accessibility.css";
+@import '../src/styles/00-tokens.css';
+@import '../src/styles/01-effects.css';
+@import '../src/styles/02-base-accessibility.css';
+@import '../src/styles/03-navigation-ui.css';
+@import '../src/styles/04-landing-sections.css';
+@import '../src/styles/05-content-pages.css';
+@import '../src/styles/06-utilities.css';
+@import '../src/styles/07-responsive-accessibility.css';

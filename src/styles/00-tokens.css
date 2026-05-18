@@ -4,20 +4,21 @@
 
 /* CSS Variables */
 :root {
+    color-scheme: light;
     /* Colors */
-    --primary: #FF6B9D;
-    --primary-light: #FF8FAB;
-    --primary-dark: #E5527A;
-    --accent: #FF6B9D;
-    --whatsapp: #25D366;
-    --whatsapp-dark: #1DA851;
+    --primary: #ff6b9d;
+    --primary-light: #ff8fab;
+    --primary-dark: #e5527a;
+    --accent: #ff6b9d;
+    --whatsapp: #25d366;
+    --whatsapp-dark: #1da851;
 
     /* Neutrals */
-    --white: #FFFFFF;
-    --bg: #FFF5F8;
+    --white: #ffffff;
+    --bg: #fff5f8;
     --bg-card: rgba(255, 255, 255, 0.8);
-    --text: #1A1A2E;
-    --text-light: #6B7280;
+    --text: #1a1a2e;
+    --text-light: #6b7280;
     --border: rgba(255, 107, 157, 0.2);
 
     /* iOS 26 Design Tokens */
@@ -45,50 +46,50 @@
 /* ============================================
    DARK MODE VARIABLES
    ============================================ */
-[data-theme="dark"] {
-    --bg: #0D0D1A;
+[data-theme='dark'] {
+    color-scheme: dark;
+    --bg: #0d0d1a;
     --bg-card: rgba(30, 30, 50, 0.8);
-    --text: #F5F5F7;
-    --text-light: #A0A0B0;
+    --text: #f5f5f7;
+    --text-light: #a0a0b0;
     --border: rgba(255, 107, 157, 0.3);
-    --white: #1A1A2E;
+    --white: #1a1a2e;
 }
 
-[data-theme="dark"] .hearts-bg .heart {
+[data-theme='dark'] .hearts-bg .heart {
     opacity: 0.04;
 }
 
-[data-theme="dark"] .navbar .nav-pill {
+[data-theme='dark'] .navbar .nav-pill {
     background: rgba(30, 30, 50, 0.85);
 }
 
-[data-theme="dark"] .portfolio-tag,
-[data-theme="dark"] .blog-tag {
+[data-theme='dark'] .portfolio-tag,
+[data-theme='dark'] .blog-tag {
     background: var(--text);
     color: var(--bg);
 }
 
 /* Fix white background visible at top in dark mode */
-[data-theme="dark"] body,
-[data-theme="dark"] html {
-    background-color: #0D0D1A !important;
+[data-theme='dark'] body,
+[data-theme='dark'] html {
+    background-color: #0d0d1a;
 }
 
-[data-theme="dark"] .navbar {
-    background: transparent !important;
+[data-theme='dark'] .navbar {
+    background: transparent;
 }
 
-[data-theme="dark"] .nav-container {
-    background: transparent !important;
+[data-theme='dark'] .nav-container {
+    background: transparent;
 }
 
 /* Fix for blog/article pages - ensure no white peek at very top */
-[data-theme="dark"] .article,
-[data-theme="dark"] .blog-page {
-    background-color: #0D0D1A;
+[data-theme='dark'] .article,
+[data-theme='dark'] .blog-page {
+    background-color: #0d0d1a;
 }
 
-[data-theme="dark"]::before {
-    background-color: #0D0D1A !important;
+[data-theme='dark']::before {
+    background-color: #0d0d1a;
 }
-

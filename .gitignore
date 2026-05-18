@@ -5,3 +5,8 @@ out/
 output/
 tsconfig.tsbuildinfo
 .next-dev.pid
+.server.pid
+test-results/
+playwright-report/
+playwright/.cache/
+.lighthouseci/
