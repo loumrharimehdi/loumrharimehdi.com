@@ -5,6 +5,8 @@ export function MeshBackground() {
             <div className="mesh-blob mesh-blob-2" />
             <div className="mesh-blob mesh-blob-3" />
             <div className="mesh-blob mesh-blob-4" />
+            <div className="mesh-blob mesh-blob-5" />
+            <div className="mesh-blob mesh-blob-6" />
             <svg className="mesh-noise" xmlns="http://www.w3.org/2000/svg">
                 <filter id="mesh-noise-filter">
                     <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" />

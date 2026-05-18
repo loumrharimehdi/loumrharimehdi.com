@@ -6,6 +6,7 @@ import { LoaderScript } from '@/components/LoaderScript';
 import { MeshBackground } from '@/components/MeshBackground';
 import { PageEffects } from '@/components/PageEffects';
 import { ServiceWorkerRegistrar } from '@/components/ServiceWorkerRegistrar';
+import { SparklesBackground } from '@/components/SparklesBackground';
 import { SvgSprite } from '@/components/SvgSprite';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { ThemeScript } from '@/components/ThemeScript';
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <ThemeProvider>
                     <SvgSprite />
                     <MeshBackground />
+                    <SparklesBackground />
                     {children}
                     <CustomCursor />
                     <PageEffects />

@@ -797,9 +797,13 @@ a.portfolio-card:hover .portfolio-link {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-color: var(--white);
+    accent-color: var(--primary);
+    color-scheme: light;
+    background-color: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
     background-image:
-        linear-gradient(135deg, transparent 0%, rgba(255, 107, 157, 0.04) 100%),
+        linear-gradient(135deg, rgba(255, 143, 171, 0.06) 0%, rgba(255, 179, 102, 0.04) 100%),
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FF6B9D' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -811,11 +815,23 @@ a.portfolio-card:hover .portfolio-link {
     padding-right: 50px;
     font-weight: 500;
     letter-spacing: 0.01em;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        0 4px 16px rgba(255, 107, 157, 0.08);
     transition:
         border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        background-position-y 0.25s ease,
-        transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow 0.3s ease,
+        background-color 0.25s ease,
+        background-position-y 0.3s ease,
+        transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme='dark'] .form-group select {
+    color-scheme: dark;
+    background-color: rgba(30, 30, 50, 0.55);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 /* Dimmed placeholder when nothing is selected (option value="" + required = :invalid) */
@@ -826,25 +842,39 @@ a.portfolio-card:hover .portfolio-link {
 
 .form-group select:hover {
     border-color: var(--primary-light);
-    background-color: rgba(255, 107, 157, 0.04);
+    background-color: rgba(255, 255, 255, 0.75);
+    transform: translateY(-1px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 8px 24px rgba(255, 107, 157, 0.18);
+}
+
+[data-theme='dark'] .form-group select:hover {
+    background-color: rgba(40, 40, 65, 0.7);
 }
 
 .form-group select:focus {
-    transform: translateY(-1px);
+    transform: translateY(-2px) scale(1.005);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 0 0 4px rgba(255, 107, 157, 0.18),
+        0 12px 30px rgba(255, 107, 157, 0.22);
 }
 
-/* Chevron pivots slightly when the select is focused */
+/* Chevron flips upward when the select is focused (about to open) */
 .form-group select:focus-visible {
     background-image:
-        linear-gradient(135deg, rgba(255, 107, 157, 0.06) 0%, rgba(255, 107, 157, 0.02) 100%),
+        linear-gradient(135deg, rgba(255, 107, 157, 0.1) 0%, rgba(255, 179, 102, 0.06) 100%),
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23E5527A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='18 15 12 9 6 15'%3E%3C/polyline%3E%3C/svg%3E");
 }
 
+/* Options panel — limited by browser, but what we can style */
 .form-group select option {
-    padding: 12px;
+    padding: 14px 16px;
     background: var(--white);
     color: var(--text);
     font-weight: 500;
+    font-size: 1rem;
 }
 
 .form-group select option[value=''] {
@@ -1068,26 +1098,123 @@ a.portfolio-card:hover .portfolio-link {
 }
 
 /* ============================================
-   FOOTER
+   FOOTER — premium glass + accent CTA
    ============================================ */
 .footer {
-    background: var(--white);
-    padding: 60px 0 30px;
     position: relative;
     z-index: 1;
+    padding: 80px 0 32px;
+    overflow: hidden;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 245, 248, 0.65) 25%, rgba(255, 245, 248, 0.95) 100%);
+    border-top: 1px solid rgba(255, 107, 157, 0.15);
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary-light),
+        var(--primary),
+        var(--primary-light),
+        transparent
+    );
+    opacity: 0.6;
+}
+
+.footer-glow {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(ellipse at center, rgba(255, 107, 157, 0.18) 0%, transparent 60%);
+    pointer-events: none;
+    filter: blur(40px);
+}
+
+/* Glass CTA strip at the top of the footer */
+.footer-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 32px 36px;
+    margin-bottom: 56px;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(28px) saturate(1.6);
+    -webkit-backdrop-filter: blur(28px) saturate(1.6);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow:
+        0 16px 48px rgba(255, 107, 157, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-cta {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+.footer-cta-text h3 {
+    font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+    margin: 0 0 6px;
+}
+
+.footer-cta-text p {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.footer-cta .btn {
+    flex-shrink: 0;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 40px;
     margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
 }
 
 .footer-brand p {
     margin-top: 16px;
     color: var(--text-light);
-    max-width: 300px;
+    max-width: 320px;
+    line-height: 1.6;
+}
+
+.footer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.footer-tags span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: var(--radius-xl);
+    background: rgba(255, 107, 157, 0.08);
+    border: 1px solid rgba(255, 107, 157, 0.18);
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
 .footer-links {
@@ -1104,29 +1231,56 @@ a.portfolio-card:hover .portfolio-link {
 
 @media (min-width: 1024px) {
     .footer-content {
-        grid-template-columns: 2fr 3fr;
-        gap: 48px;
+        grid-template-columns: 1.4fr 2.6fr;
+        gap: 56px;
     }
 }
 
 .footer-col h4 {
-    margin-bottom: 16px;
-    font-size: 0.9rem;
-    color: var(--text-light);
+    margin-bottom: 18px;
+    font-size: 0.75rem;
+    color: var(--primary);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
 }
 
 .footer-col a {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: var(--text);
     text-decoration: none;
-    padding: 6px 0;
-    transition: var(--transition);
+    padding: 7px 0;
+    font-size: 0.95rem;
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease,
+        padding-left 0.25s ease;
+    position: relative;
+}
+
+.footer-col a::before {
+    content: '→';
+    position: absolute;
+    left: -22px;
+    opacity: 0;
+    color: var(--primary);
+    transform: translateX(-6px);
+    transition:
+        opacity 0.25s ease,
+        transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .footer-col a:hover {
     color: var(--primary);
+    padding-left: 16px;
+}
+
+.footer-col a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+    left: -4px;
 }
 
 .footer-bottom {
@@ -1135,13 +1289,16 @@ a.portfolio-card:hover .portfolio-link {
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 107, 157, 0.18);
+    position: relative;
+    z-index: 1;
 }
 
 .footer-bottom p {
     color: var(--text-light);
     font-size: 0.9rem;
+    margin: 0;
 }
 
 .footer-credit {
@@ -1151,26 +1308,35 @@ a.portfolio-card:hover .portfolio-link {
 .footer-credit a {
     color: var(--primary);
     text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition);
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: opacity 0.25s ease;
 }
 
 .footer-credit a:hover {
-    color: var(--primary-dark);
+    opacity: 0.7;
 }
 
-.footer-social {
-    display: flex;
-    gap: 16px;
+[data-theme='dark'] .footer {
+    background: linear-gradient(180deg, transparent 0%, rgba(13, 13, 26, 0.6) 25%, rgba(13, 13, 26, 0.95) 100%);
+    border-top-color: rgba(255, 107, 157, 0.25);
 }
 
-.footer-social a {
-    font-size: 1.25rem;
-    transition: var(--transition);
+[data-theme='dark'] .footer-cta {
+    background: rgba(30, 30, 50, 0.55);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
-.footer-social a:hover {
-    transform: scale(1.2);
+[data-theme='dark'] .footer-tags span {
+    background: rgba(255, 107, 157, 0.1);
+    border-color: rgba(255, 107, 157, 0.25);
+}
+
+[data-theme='dark'] .footer-bottom {
+    border-top-color: rgba(255, 107, 157, 0.2);
 }
 
 /* ============================================

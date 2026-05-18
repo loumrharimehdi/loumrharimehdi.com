@@ -3,10 +3,10 @@
 import { useEffect, useRef } from 'react';
 
 type HeartsBackgroundProps = {
-    count?: 2 | 4;
+    count?: 2 | 4 | 6 | 8;
 };
 
-export function HeartsBackground({ count = 4 }: HeartsBackgroundProps) {
+export function HeartsBackground({ count = 8 }: HeartsBackgroundProps) {
     const heartRefs = useRef<Array<HTMLDivElement | null>>([]);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export function HeartsBackground({ count = 4 }: HeartsBackgroundProps) {
             heartRefs.current.forEach((heart, index) => {
                 if (!heart) return;
 
-                const speed = 0.03 + index * 0.015;
+                const speed = 0.03 + index * 0.012;
                 heart.style.setProperty('--heart-scroll', `${scrollY * speed}px`);
             });
 

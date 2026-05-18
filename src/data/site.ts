@@ -25,7 +25,7 @@ export const legal = {
 
 export const services = [
     {
-        icon: '/images/website.png',
+        icon: '🌐',
         title: 'Site Web',
         description: 'Un site pour présenter votre activité. Beau, moderne et facile à utiliser.',
         features: ['Fonctionne sur téléphone', 'Visible sur Google', 'Rapide à charger']
