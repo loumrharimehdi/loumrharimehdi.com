@@ -3,7 +3,7 @@ export const site = {
     title: 'Mehdi Loumrhari - Création Site Web, App Web & Mobile',
     description:
         'Création de sites web, applications web et mobiles. Design premium, livraison rapide, accompagnement sur mesure.',
-    url: 'https://loumrharimehdi.com',
+    url: 'https://www.mehdiloumrhari.agency',
     email: 'loumrhari.mehdi@gmail.com',
     phone: '+212 680 287 864',
     whatsapp: 'https://wa.me/212680287864',
@@ -126,7 +126,7 @@ export const portfolio = [
     },
     {
         slug: 'loumrhari-agency',
-        href: 'https://loumrharimehdi.com',
+        href: 'https://www.mehdiloumrhari.agency',
         image: '/assets/portfolio-loumrhari.webp',
         width: 1024,
         height: 590,

@@ -10,7 +10,7 @@ import { legal, site } from '@/data/site';
 export const metadata: Metadata = {
     title: 'Mentions légales',
     description:
-        'Mentions légales du site loumrharimehdi.com : éditeur, hébergeur, propriété intellectuelle et contact.',
+        'Mentions légales du site mehdiloumrhari.agency : éditeur, hébergeur, propriété intellectuelle et contact.',
     alternates: {
         canonical: '/mentions-legales'
     },

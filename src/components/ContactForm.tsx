@@ -41,7 +41,7 @@ export function ContactForm() {
     return (
         <form className="contact-form" id="contact-form" onSubmit={handleSubmit}>
             <input type="hidden" name="access_key" value="58db8024-a509-408d-8dab-2ff3f3e758f2" />
-            <input type="hidden" name="subject" value="Nouveau message - loumrharimehdi.com" />
+            <input type="hidden" name="subject" value="Nouveau message - mehdiloumrhari.agency" />
             <input type="hidden" name="from_name" value="Portfolio Contact" />
             <input type="checkbox" name="botcheck" hidden tabIndex={-1} autoComplete="off" />
 

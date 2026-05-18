@@ -150,7 +150,7 @@ export const projects: Project[] = [
         slug: 'loumrhari-agency',
         title: 'Loumrhari Agency',
         tag: 'Portfolio',
-        href: 'https://loumrharimehdi.com',
+        href: 'https://www.mehdiloumrhari.agency',
         image: '/assets/portfolio-loumrhari.webp',
         imageAlt: 'Loumrhari Agency - Site portfolio',
         width: 1024,
