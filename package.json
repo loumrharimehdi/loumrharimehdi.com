@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "npx --yes esbuild@0.27 src/main.js --bundle --format=iife --target=es2019 --outfile=script.js && npx --yes terser@5 script.js --compress --mangle --output script.min.js",
+    "build:css": "node scripts/build-css.mjs && npx --yes clean-css-cli@5 -o style.min.css style.css"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "esbuild": "^0.27.0",
+    "terser": "^5.44.1"
+  }
+}

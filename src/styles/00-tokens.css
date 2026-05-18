@@ -1,0 +1,94 @@
+﻿/* ============================================
+   MEHDI LOUMRHARI - iOS 26 Style Landing Page
+   ============================================ */
+
+/* CSS Variables */
+:root {
+    /* Colors */
+    --primary: #FF6B9D;
+    --primary-light: #FF8FAB;
+    --primary-dark: #E5527A;
+    --accent: #FF6B9D;
+    --whatsapp: #25D366;
+    --whatsapp-dark: #1DA851;
+
+    /* Neutrals */
+    --white: #FFFFFF;
+    --bg: #FFF5F8;
+    --bg-card: rgba(255, 255, 255, 0.8);
+    --text: #1A1A2E;
+    --text-light: #6B7280;
+    --border: rgba(255, 107, 157, 0.2);
+
+    /* iOS 26 Design Tokens */
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 28px;
+    --radius-xl: 40px;
+
+    --blur: 20px;
+    --shadow: 0 8px 32px rgba(255, 107, 157, 0.15);
+    --shadow-lg: 0 20px 60px rgba(255, 107, 157, 0.2);
+
+    /* Spacing */
+    --section-padding: 100px 0;
+    --container-width: 1200px;
+
+    /* Transitions */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Cursor */
+    --cursor-size: 20px;
+}
+
+/* ============================================
+   DARK MODE VARIABLES
+   ============================================ */
+[data-theme="dark"] {
+    --bg: #0D0D1A;
+    --bg-card: rgba(30, 30, 50, 0.8);
+    --text: #F5F5F7;
+    --text-light: #A0A0B0;
+    --border: rgba(255, 107, 157, 0.3);
+    --white: #1A1A2E;
+}
+
+[data-theme="dark"] .hearts-bg .heart {
+    opacity: 0.04;
+}
+
+[data-theme="dark"] .navbar .nav-pill {
+    background: rgba(30, 30, 50, 0.85);
+}
+
+[data-theme="dark"] .portfolio-tag,
+[data-theme="dark"] .blog-tag {
+    background: var(--text);
+    color: var(--bg);
+}
+
+/* Fix white background visible at top in dark mode */
+[data-theme="dark"] body,
+[data-theme="dark"] html {
+    background-color: #0D0D1A !important;
+}
+
+[data-theme="dark"] .navbar {
+    background: transparent !important;
+}
+
+[data-theme="dark"] .nav-container {
+    background: transparent !important;
+}
+
+/* Fix for blog/article pages - ensure no white peek at very top */
+[data-theme="dark"] .article,
+[data-theme="dark"] .blog-page {
+    background-color: #0D0D1A;
+}
+
+[data-theme="dark"]::before {
+    background-color: #0D0D1A !important;
+}
+

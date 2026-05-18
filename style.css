@@ -472,7 +472,6 @@
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-
 /* Reset & Base */
 *,
 *::before,
@@ -516,9 +515,23 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
     outline: 3px solid var(--primary);
     outline-offset: 2px;
+}
+
+/* Rounded controls: outline doesn't follow the border-radius, use ring shadow */
+.btn:focus-visible,
+.theme-toggle:focus-visible,
+.hamburger:focus-visible,
+.whatsapp-float:focus-visible,
+.portfolio-card:focus-visible,
+.blog-card:focus-visible,
+.share-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--primary);
 }
 
 /* ============================================
@@ -1139,7 +1152,7 @@ h3 {
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     color: var(--text-light);
     margin-bottom: 40px;
     max-width: 500px;
@@ -1153,6 +1166,32 @@ h3 {
     gap: 16px;
     flex-wrap: wrap;
     margin-bottom: 48px;
+}
+
+.hero-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+        transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+        opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+        transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal-on-scroll.is-revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 
@@ -1181,12 +1220,15 @@ h3 {
     border-radius: var(--radius-lg);
     padding: 40px 32px;
     text-align: center;
-    transition: var(--transition);
+    transition:
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.4s ease,
+        border-color 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.15);
 }
 
 .service-card.featured {
@@ -1200,6 +1242,11 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.15) rotate(5deg);
 }
 
 .service-icon svg {
@@ -1267,6 +1314,14 @@ h3 {
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0 auto 20px;
+    transition:
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.4s ease;
+}
+
+.process-step:hover .step-number {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 107, 157, 0.4);
 }
 
 .process-step h3 {
@@ -1301,12 +1356,15 @@ h3 {
     border-radius: var(--radius-lg);
     padding: 32px;
     text-align: center;
-    transition: var(--transition);
+    transition:
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.4s ease,
+        border-color 0.3s ease;
 }
 
 .why-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 16px 32px rgba(255, 107, 157, 0.12);
     border-color: var(--primary);
 }
 
@@ -1316,6 +1374,11 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.why-card:hover .why-icon {
+    transform: scale(1.2);
 }
 
 .why-icon svg {
@@ -1361,6 +1424,12 @@ h3 {
     padding: 48px 40px;
     text-align: center;
     position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.pricing-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 24px 60px rgba(255, 107, 157, 0.25);
 }
 
 .pricing-badge {
@@ -1467,12 +1536,14 @@ h3 {
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    transition: var(--transition);
+    transition:
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.4s ease;
 }
 
 .portfolio-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.15);
 }
 
 .portfolio-image {
@@ -1581,6 +1652,14 @@ a.portfolio-card:hover .portfolio-link {
     border-radius: var(--radius-lg);
     padding: 32px;
     position: relative;
+    transition:
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.4s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(255, 107, 157, 0.12);
 }
 
 .testimonial-quote {
@@ -1959,9 +2038,17 @@ a.portfolio-card:hover .portfolio-link {
 }
 
 .btn-loader {
-    display: inline-flex;
+    display: none;
     align-items: center;
     gap: 8px;
+}
+
+#submit-btn.is-loading .btn-text {
+    display: none;
+}
+
+#submit-btn.is-loading .btn-loader {
+    display: inline-flex;
 }
 
 .btn-loader::after {
@@ -2661,7 +2748,7 @@ a.portfolio-card:hover .portfolio-link {
 }
 
 .share-copy.copied::after {
-    content: '✓';
+    content: 'âœ“';
     position: absolute;
 }
 
@@ -2669,5 +2756,69 @@ a.portfolio-card:hover .portfolio-link {
     .article-share {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION (accessibility)
+   Respects user preference to minimize animations
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .hero::before,
+    .heart,
+    .loader-logo,
+    .pulse-badge {
+        animation: none !important;
+    }
+}
+
+/* ============================================
+   INTERMEDIATE BREAKPOINTS (1024 / 640)
+   ============================================ */
+@media (max-width: 1024px) {
+    :root {
+        --section-padding: 80px 0;
+    }
+
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .services-grid,
+    .portfolio-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: clamp(1.85rem, 7vw, 2.25rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-header h2 {
+        font-size: clamp(1.65rem, 6vw, 2.25rem);
+    }
+
+    .pricing-card {
+        padding: 32px 20px;
+    }
+
+    .nav-pill {
+        padding: 8px 12px;
     }
 }
