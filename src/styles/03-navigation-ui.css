@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    HAMBURGER MENU (Mobile)
    ============================================ */
 .hamburger {
@@ -78,7 +78,7 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-inter, 'Inter'), -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;

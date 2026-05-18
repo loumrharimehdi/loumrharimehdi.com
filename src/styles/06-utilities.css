@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    FLOATING WHATSAPP BUTTON
    ============================================ */
 .whatsapp-float {
@@ -243,6 +243,134 @@
     .article-share {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+/* ============================================
+   404 PAGE
+   ============================================ */
+.content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.error-code {
+    font-size: clamp(8rem, 20vw, 12rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, #FFB366 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 16px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.error-icon {
+    font-size: 4rem;
+    margin-bottom: 24px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.content h1 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 16px;
+}
+
+.content p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.suggestions {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+}
+
+.suggestions h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 16px;
+}
+
+.suggestion-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.suggestion-links a {
+    padding: 8px 16px;
+    background: rgba(255, 107, 157, 0.1);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: var(--radius-xl);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.suggestion-links a:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.footer-404 {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    z-index: 2;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+.footer-404 a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons .btn {
+        width: 100%;
     }
 }
 

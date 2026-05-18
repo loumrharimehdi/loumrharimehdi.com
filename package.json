@@ -1,12 +1,30 @@
 {
+  "name": "loumrharimehdi",
+  "private": true,
   "scripts": {
-    "build": "npm run build:js && npm run build:css",
-    "build:js": "npx --yes esbuild@0.27 src/main.js --bundle --format=iife --target=es2019 --outfile=script.js && npx --yes terser@5 script.js --compress --mangle --output script.min.js",
-    "build:css": "node scripts/build-css.mjs && npx --yes clean-css-cli@5 -o style.min.css style.css"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "build:legacy": "npm run build:legacy:js && npm run build:legacy:css",
+    "build:legacy:js": "npx --yes esbuild@0.27 src/main.js --bundle --format=iife --target=es2019 --outfile=script.js && npx --yes terser@5 script.js --compress --mangle --output script.min.js",
+    "build:legacy:css": "node scripts/build-css.mjs && npx --yes clean-css-cli@5 -o style.min.css style.css"
+  },
+  "dependencies": {
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
   },
   "devDependencies": {
+    "@types/node": "^25.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
     "clean-css-cli": "^5.6.3",
     "esbuild": "^0.27.0",
-    "terser": "^5.44.1"
+    "terser": "^5.44.1",
+    "typescript": "^6.0.3"
   }
 }

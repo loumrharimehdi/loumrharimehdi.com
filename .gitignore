@@ -1,2 +1,7 @@
 .vercel
 node_modules/
+.next/
+out/
+output/
+tsconfig.tsbuildinfo
+.next-dev.pid

@@ -1,12 +1,10 @@
-﻿/* ============================================
+/* ============================================
    REDUCED MOTION (accessibility)
    Respects user preference to minimize animations
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
 
-    *,
-    *::before,
-    *::after {
+    html * {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
